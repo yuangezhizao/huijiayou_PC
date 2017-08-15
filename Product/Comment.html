@@ -1,0 +1,62 @@
+﻿<ul class="commentsWrap" id="productList"></ul>
+<a id="btnRelease" class="commentBtn">提交评价</a>
+<script type="text/template" id="tmpReviewProduct">
+    <li class="com" sku_code="{{SkuCode}}" product_Code="{{ProductCode}}">
+        <div class="goodInfo clearfix">
+            <div class="goodPic">
+                <img src="{{ProductImg}}" />
+            </div>
+            <div class="goodCon">
+                <h3>{{ProductName}}</h3>
+                {{Style}}
+            </div>
+        </div>
+        <div class="com_degree clearfix">
+            <label class="com_label">评价 : </label>
+            <ul class="com_star clearfix" name="grade" grade="5">
+                <li grade="1" class="on"></li>
+                <li grade="2" class="on"></li>
+                <li grade="3" class="on"></li>
+                <li grade="4" class="on"></li>
+                <li grade="5" class="on"></li>
+            </ul>
+            <ul class="com_con">
+                <li grade="1" class="deg1">不满意</li>
+                <li grade="2" class="deg2">一般</li>
+                <li grade="3" class="deg3">还可以</li>
+                <li grade="4" class="deg4">比较满意</li>
+                <li grade="5" class="deg5">非常满意</li>
+            </ul>
+        </div>
+        <textarea placeholder="写下您的购物体验，可以为其他小伙伴提供参考哦~" maxlength="500"></textarea>
+        <div class="com_imgs_up clearfix">
+            <ul class="com_imgs">
+                <!--<li class="act">
+                    <img src="../img/dome_25.jpg" />
+                    <b class="img_delete"></b>
+                    <b class="img_arrow"></b>
+                </li>
+                <li>
+                    <img src="../img/dome_08.png" />
+                    <b class="img_delete"></b>
+                    <b class="img_arrow"></b>
+                </li>-->
+            </ul>
+            <div class="uploadimg">
+                <form method="post" id="upLoadImg" action="/Ajax/API.aspx?action=uploadimg" enctype="multipart/form-data">
+                    <input type="file" style="filter:alpha(opacity=0);opacity: 0;height:75px;width:75px;cursor:pointer;" id="imgFile" name="imgFile" />
+                </form>
+            </div>
+            <div class="img2big" style="display:none;">
+                <img src="" />
+                <span class="img_delete2">删除</span>
+            </div>
+        </div>
+    </li>
+</script>
+<script type="text/javascript">
+    var s = [[], ["/JS/pages/reviewRelease.js", "/JS/jquery.form.min.js"]];
+    AppendStatic(s, function () {
+
+    });
+</script>

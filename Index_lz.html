@@ -1,0 +1,404 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base target="_blank">
+    <link rel="shortcut icon" href="/img/jyh.ico" type="image/vnd.microsoft.icon" />
+    <title>惠家有-首页</title>
+    <script src="/js/cdn.js"></script>
+    <script type="text/javascript">
+        var staticlist = [["/css/style.css"], ["/js/jquery.min.js", "/js/jsScroll.js", "/js/slide.js", "/JS/functions/g_Const.js", "/js/g_header.js", "/js/g_index.js", "/js/MyLazyload.js"]];
+        WriteStatic(staticlist);
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <!--===头部 star===-->
+        <div class="wrap_top">
+            <p module="202001">
+                <a class="fl" onclick="FavoritesOperator.Add();">收藏</a>
+                <a href="Index.html">首页</a><a id="topLogin">请登录</a>
+                <a class="on" id="topLoginName" style="display:none;"></a>
+                <a onclick="UserInfo.Logout();" id="topLoginOut" style="display:none;">退出</a>
+                <a id="topRegister">免费注册</a>
+                <span>|</span>
+                <font>购物车<a id="shoppingCartNum">0</a>件</font>
+                <a id="myJYH">我的家有</a>
+                <font>可用优惠劵<a id="discountNum">0</a>张</font>
+                <a id="myFavourites">我的收藏</a><span>|</span>
+                <label class="iphone"><a>手机版<strong class="tan"><i></i><img src="/img/ewm02.jpg" alt=""><em>惠家有APP</em></strong></a></label>
+                <label class="wx"><a>微信版<strong class="tan"><i></i><img src="/img/ewm01.jpg" alt=""><em>家有微信</em></strong></a></label>
+            </p>
+        </div>
+        <div class="head">
+            <div class="top" module="202002">
+                <h1><a href="Index.html"><img src="/img/logo.jpg" alt="家有汇" title="家有汇"></a></h1>
+                <div class="search">
+                    <input type="text" id="txtSearch" value="">
+                    <a id="btnSearch" class="s1">搜 索</a>
+                    <p id="hotWord" module="202005">
+                    </p>
+                    <!--====搜索关联====-->
+                    <div class="relevance" id="divAssociate" style="display:none;">
+                    </div>
+                </div>
+                <div class="fr" id="gou">
+                    <a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.Cart, '');" class="gou">我的购物车<i id="i_totalnum_top">0</i></a>
+                    <em id="biao"></em>
+                    <div class="ware_list" id="ware_list">
+                        <!--==有商品===-->
+                        <div class="you" id="cart_yes">
+                            <h2>最新加入商品</h2>
+                            <ul class="bd" id="wrasList"></ul>
+                            <div class="ft">
+                                <span><a style="cursor:pointer" id="btnCart">去购物车</a></span>
+                                <font>共<i id="i_totalnum">0</i>件商品</font>
+                                <font>共计<b id="i_totalprice">￥0.00</b>元</font>
+                            </div>
+                        </div>
+                        <!--===没有商品===-->
+                        <div class="wu" style="display:none;" id="cart_no">
+                            购物车中还没有商品，赶紧去选购吧
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav">
+                <b id="nav1" class="curr">
+                    全部商品分类
+                    <div class="pop" id="navMain" style="display:block!important;">
+                        <div class="cont" id="pop" style="overflow:hidden;width:221px;padding-right:10px;height:560px;" module="202011">
+                        </div>
+                    </div>
+                </b>
+                <ul module="2020012">
+                    <li><a href="Index.html" class="curr" style="cursor:pointer" target="_blank">首页</a></li>
+                    <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.TVShow, '','','1')" style="cursor:pointer">TV直播</a></li>
+                    <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.BrandPreferenceList,'','','1')" style="cursor:pointer">品牌汇</a></li>
+                    <!--<li><a>海外购</a></li>-->
+                    <li><a href="/APP.html" style="cursor:pointer" target="_blank">惠家有APP</a></li>
+                    <li><a href="http://www.jyh.com/vip/index" target="_blank" style="cursor:pointer">家有尊享</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--===头部 end===-->
+        <!--===内容 star===-->
+        <div class="main" id="mainContent" module="202014">
+            <div class="rect" module="202013">
+                <div class="fl" id="topThree">
+                    <div class="focus" id="focus1">
+                        <ul class="hd" id="cont1"></ul>
+                        <a class="prev" href="javascript:void(0)" id="prev1"></a>
+                        <a class="next" href="javascript:void(0)" id="next1"></a>
+                        <div class="num" id="num1">
+                            <ul></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="fr">
+                    <div class="personal" id="accountInfo">
+                        <!--==未登录==-->
+                        <div class="no" style="display:none;">
+                            <div class="hd">
+                                <img src="/img/dome_07.png" alt="">
+                                <i>hi！欢迎来到家有汇</i>
+                            </div>
+                            <a onclick="g_index.GoTo(g_const_PageURL.GetKey(g_const_PageURL.Login), '')" class="dl" style="cursor:pointer;">登 录</a>
+                            <p><a onclick="g_index.GoTo(g_const_PageURL.GetKey(g_const_PageURL.Register), '')" style="cursor:pointer;">免费注册</a></p>
+                        </div>
+                        <!--==已登录==-->
+                        <div class="yes" style="display:none;">
+                            <div class="hd" onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.AccountIndex, '');" style="cursor:pointer;"><a><img id="headImg" src="/img/dome_08.png" alt=""><i id="LoginName">hi！</i></a></div>
+                            <ul>
+                                <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.MyOrder_List, '&s=DSH');">待收货<i id="DSH">0</i></a></li>
+                                <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.MyOrder_List, '&s=DFH');">待发货<i id="DFH">0</i></a></li>
+                                <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.MyOrder_List, '&s=DFK');">待付款<i id="DFK">0</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="conve-list">
+                        <div class="hd">4008-678-210</div>
+                        <ul>
+                            <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.TVShow, '')" style="cursor:pointer"><i class="i1"></i>直播<br>节目表</a></li>
+                            <li><a href="/APP.html" style="cursor:pointer"><i class="i2"></i>掌上<br>购物</a></li>
+                            <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.MyOrder_List, '')" style="cursor:pointer"><i class="i3"></i>物流<br>查询</a></li>
+                            <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.AccountIndex, '');" style="cursor:pointer"><i class="i4"></i>会员<br>中心</a></li>
+                        </ul>
+                    </div>
+                    <div class="goods-hd" id="rightAd">
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/template" id="tmpTVShow">
+                <li>
+                    <a onclick="{{Link}}">
+                        <img src="{{ImgUrl}}" alt="">
+                        {{State}}
+                        <b>{{ProductName}}</b>
+                        <font>￥{{SalePrice}}<i>￥{{OriginalPrice}}</i></font>
+                    </a>
+                </li>
+            </script>
+            <script type="text/template" id="tmpCommonAd">
+                <div class="bn" module="{{Module}}"><a onclick="{{Link}}"><img src="" request-url="{{ImgUrl}}" alt=""></a></div>
+            </script>
+            <script type="text/template" id="tmpRecommendProduct">
+                <li>
+                    <a onclick="{{Link}}">
+                        {{Mark}}
+                        <img src="" request-url="{{ImgUrl}}" alt="">
+                        <b>{{ProductName}}</b>
+                        <font>￥{{SalePrice}}</font>
+                    </a>
+                </li>
+            </script>
+            <script type="text/template" id="tmpFastBuy">
+                <li>
+                    <a onclick="{{Link}}">
+                        {{Mark}}
+                        <img src="" request-url="{{ImgUrl}}" alt="">
+                        <span>{{Discount}}折</span>
+                        <b>{{ProductName}}</b>
+                        <font>￥{{SalePrice}}<i>￥{{OriginalPrice}}</i></font>
+                        <strong>{{BtnName}}</strong>
+                    </a>
+                </li>
+            </script>
+            <script type="text/template" id="tmpFloor">
+                <div class="floor" module="{{Module}}">
+                    <div class="fl">
+                        <div class="hd"><h2>{{FloorTitle}}</h2></div>
+                        <div class="bd">
+                            <div class="left" module="202008">
+                                <b>
+                                    {{BigImg}}
+                                </b>
+                                <p>
+                                    {{BrandList}}
+                                </p>
+                            </div>
+                            <div class="right" module="202009">
+                                <div class="focus" name="focus2">
+                                    <ul class="hd" name="cont2" module="202007">
+                                        {{SliderList}}
+                                    </ul>
+                                    <a class="prev" href="javascript:void(0)" name="prev2"></a>
+                                    <a class="next" href="javascript:void(0)" name="next2"></a>
+                                    <div class="num" name="num2">
+                                        <ul></ul>
+                                    </div>
+                                </div>
+                                {{AdUnderList}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fr selling">
+                        <div class="hd"><h2>{{AdRightListTitle}}</h2></div>
+                        <ul class="bd" module="202010">
+                            {{AdRightList}}
+                        </ul>
+                    </div>
+                </div>
+            </script>
+            <script type="text/template" id="tmpFloorBigImg">
+                <a onclick="{{Link}}"><img src="" request-url="{{ImgUrl}}" alt=""></a>
+            </script>
+            <script type="text/template" id="tmpFloorBrandList">
+                <a onclick="{{Link}}"><img src="" request-url="{{ImgUrl}}" alt=""></a>
+            </script>
+            <script type="text/template" id="tmpFloorSliderList">
+                <li><a onclick="{{Link}}"><img src="" request-url="{{ImgUrl}}" alt=""></a></li>
+            </script>
+            <script type="text/template" id="tmpFloorAdUnderList">
+                <div class="ad{{Num}}"><a onclick="{{Link}}"><img src="" request-url="{{ImgUrl}}" alt=""></a></div>
+            </script>
+            <script type="text/template" id="tmpFloorAdRightList">
+                <li>
+                    <a onclick="{{Link}}">
+                        {{Number}}
+                        <img src="" request-url="{{ImgUrl}}" alt="">
+                        <b>{{ProductName}}</b>
+                        <em>￥{{SalePrice}}</em>
+                    </a>
+                </li>
+            </script>
+            <script type="text/template" id="tempMaybeLove">
+                <li>
+                    <a onclick="{{Link}}" {{Style}}>
+                        {{Mark}}
+                        {{State}}
+                        <img src="" request-url="{{ImgUrl}}" alt="">
+                        <b>{{ProductName}}</b>
+                        <font>￥{{SalePrice}}<i>￥{{MarkPrice}}</i></font>
+                    </a>
+                </li>
+            </script>
+        </div>
+        <!--===内容 end===-->
+    </div>
+    <ul class="warrant" id="ul_warrant"></ul>
+    <!--====弹出窗 star====-->
+    <div class="popup" style="display:none; z-index:9999" id="messageShow">
+        <i></i>
+        <div class="cont">
+            <div class="all">
+                <a class="close">X</a>
+                <div class="bd" id="message">
+                    <b id="sp_msg"></b>
+                    <!--a href="#">去购物车看看</!--a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="customs-pop" style="display:none;" id="ConfirmMessage">
+        <i></i>
+        <div class="cont">
+            <h2><a href="">关闭</a></h2>
+            <div class="bd" id="message">
+                <p id="confirm_sp_msg"></p>
+                <b><a id="btnCancel">取消</a><a id="btnConfirm">确认</a></b>
+            </div>
+        </div>
+    </div>
+    <!--====弹出窗 end====-->
+    <!--===右侧浮动 star===-->
+    <ul class="drift">
+        <li class="l1"><a href><strong class="tan2"><i></i><img src="/img/ewm02.jpg" alt=""><em>惠家有APP</em></strong></a></li>
+        <li class="l2"><a href><strong class="tan2"><i></i><img src="/img/ewm01.jpg" alt=""><em>家有微信</em></strong></a></li>
+        <li class="l3" id="back-to-top"><a href>返回顶部</a></li>
+    </ul>
+    <!--===右侧浮动 end===-->
+    <!--===底部 star===-->
+    <div class="foot" module="202050">
+        <div class="cont">
+            <div class="fl">
+                <dl>
+                    <dt><a href="javascript:void(0)">关于我们</a></dt>
+                    <dd><a href="javascript:void(0)">公司介绍</a></dd>
+                    <dd><a href="javascript:void(0)">新闻报道</a></dd>
+                    <dd><a href="javascript:void(0)">招聘信息</a></dd>
+                    <dd><a href="javascript:void(0)">联系我们</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascript:void(0)">订购指南</a></dt>
+                    <dd><a href="javascript:void(0)">交易条款</a></dd>
+                    <dd><a href="javascript:void(0)">注册/购物流程</a></dd>
+                    <dd><a href="javascript:void(0)">退/换货</a></dd>
+                    <dd><a href="javascript:void(0)">积分说明</a></dd>
+                    <dd><a href="javascript:void(0)">发票指南</a></dd>
+                    <dd><a href="javascript:void(0)">会员制度说明</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascript:void(0)">配送服务</a></dt>
+                    <dd><a href="javascript:void(0)">配送方式</a></dd>
+                    <dd><a href="javascript:void(0)">配送区域</a></dd>
+                    <dd><a href="javascript:void(0)">配送时间</a></dd>
+                    <dd><a href="javascript:void(0)">免费配送</a></dd>
+                    <dd><a href="javascript:void(0)">限时送达</a></dd>
+                    <dd><a href="javascript:void(0)">验货与签收</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascript:void(0)">支付方式</a></dt>
+                    <dd><a href="javascript:void(0)">网上支付</a></dd>
+                    <dd><a href="javascript:void(0)">货到付款</a></dd>
+                    <dd><a href="javascript:void(0)">银行汇款</a></dd>
+                    <dd><a href="javascript:void(0)">家有卡</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascript:void(0)">合作专区</a></dt>
+                    <dd><a href="javascript:void(0)">成为供应商</a></dd>
+                    <dd><a href="javascript:void(0)">供应商系统</a></dd>
+                    <dd><a href="javascript:void(0)">合作伙伴</a></dd>
+                </dl>
+            </div>
+            <div class="fr">
+                <ul class="hd">
+                    <li><img src="/img/ewm01.jpg" alt="家有微信">家有微信</li>
+                    <li><img src="/img/ewm02.jpg" alt="惠家有APP">惠家有APP</li>
+                </ul>
+                <p>
+                    <b>4008-678-210</b>
+                    <i>客服 7x24小时 (全年无休)</i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer" module="202050">
+        <div id="index_foot_div" class="cont">
+            <p>
+                <a href="javascript:void(0)">关于家有</a>
+                <span>|</span>
+                <a href="javascript:void(0)">媒体关注</a>
+                <span>|</span>
+                <a href="javascript:void(0)">联系我们</a>
+                <span>|</span>
+                <a href="javascript:void(0)">诚聘英才</a>
+                <span>|</span>
+                <a href="javascript:void(0)">校园招聘</a>
+                <span>|</span>
+                <a href="javascript:void(0)">全部品牌</a>
+                <span>|</span>
+                <a href="javascript:void(0)">投诉建议</a>
+            </p>
+            <p id="friendLinkList" module="202051">
+                友情链接：
+                <a href="javascript:void(0)">购物频道</a>
+                <a href="javascript:void(0)">韩都衣舍</a>
+                <a href="javascript:void(0)">易购网</a>
+                <a href="javascript:void(0)">华为商城</a>
+                <a href="javascript:void(0)">佐卡伊珠宝网</a>
+                <a href="javascript:void(0)">华强北淘鞋网</a>
+                <a href="javascript:void(0)">团购王</a>
+                <a href="javascript:void(0)">中国零食网</a>
+                <a href="javascript:void(0)">腕表名表</a>
+                <a href="javascript:void(0)">什么值得买</a>
+                <a href="javascript:void(0)">太平洋家居网</a>
+                <a href="javascript:void(0)">华强北淘鞋网</a>
+                <a href="javascript:void(0)">团购王</a>
+                <a href="javascript:void(0)">中国零食网</a>
+                <a href="javascript:void(0)">腕表名表</a>
+                <a href="javascript:void(0)">什么值得买</a>
+                <a href="javascript:void(0)">更多&gt;&gt;</a>
+            </p>
+            <p>Copyright © 2008-2013 jiayougo.com <a>北京家有德顺文化发展有限公司</a> 版权所有 黔ICP备13002365号  增值电信业务经营许可证：黔B2-20120036</p>
+            <ul>
+                <li><a href="javascript:void(0)"><img src="" request-url="/img/img01.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="" request-url="/img/img02.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="" request-url="/img/img03.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="" request-url="/img/img04.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="" request-url="/img/img05.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="" request-url="/img/img06.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="" request-url="/img/img07.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="" request-url="/img/img08.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="" request-url="/img/img09.jpg" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+    <!--===底部 end===-->
+    <!--==页面动态效果==-->
+    <script type="text/javascript">
+        var staticlist = [[], ["/JS/functions/g_Type.js", "/JS/pages/Home.js", "/JS/pages/Category.js", "/JS/pages/Account.js", "/JS/Search.js", "/js/main.js", "/JS/pages/ForMaybeLove.js", "/JS/FriendLinks.js"]];
+        WriteStatic(staticlist);
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            Home.Init();
+        });
+    </script>
+    <script type="text/javascript">
+        //测试记录用户行为
+        (function () {
+            window.page = "101006";
+            var gas = document.createElement("script");
+            gas.type = "text/javascript";
+            gas.async = true;
+            gas.src = cdn_path + "/JS/gas.js";
+
+            var l = document.getElementsByTagName("script").length;
+            var g = document.getElementsByTagName("script")[l - 1];
+            g.parentNode.insertBefore(gas, g);
+        })();
+    </script>
+</body>
+</html>

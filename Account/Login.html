@@ -1,0 +1,69 @@
+﻿<!--===头部 end===-->
+<!--===内容 star===-->
+<div class="login" module="202019">
+    <div class="fl">
+        <a href="#"><img src="http://win.image.ichsy.com/hjyweb/img/dome_01.jpg" alt=""></a>
+    </div>
+    <div class="fr">
+        <div class="hd">
+            <a class="curr" id="us"><i>用户登录</i></a>
+            <a id="login"><i>快捷登录</i></a>
+        </div>
+        <div class="bd" id="user">
+            <!--==错误提示==-->
+            <font id="message" style="display:none;"></font>
+            <!--错误状态下的input有class="curr" em标签不显示-->
+            <ul>
+                <li><i class="i1"></i><input type="text" id="txtUserName" maxlength="11" value="" placeholder="请输入11位有效手机号"><em style="display:none"></em></li>
+                <li><i class="i2"></i><input type="password" id="txtPass" value="" placeholder="请输入密码"><em style="display:none"></em></li>
+                <li id="li_Verify" style="display:none;">
+                    <i class="i2"></i><input id="txtPicCode" type="text" value="" placeholder="请输入图片验证码" />
+                    <img src="" id="Verify_codeImag" alt="点击切换验证码" class="d_get_code"
+                         title="点击切换验证码" style="vertical-align: top; cursor: pointer;"
+                         onclick="ToggleCode(this.id, '/Ajax/LoginHandler.ashx'); return false;" />
+                </li>
+
+                <li class="curr"><span><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.Register, '');" style="cursor:pointer;">新用户注册</a></span><label><input name="" type="checkbox" value="0" id="ckLogin1">下次自动登录</label><a style="cursor:pointer;" onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.FindPassword, '');">忘记密码</a></li>
+            </ul>
+            <p><a id="btnLogin" style="cursor:pointer;">登 录</a></p>
+        </div>
+        <div class="bd quick" id="quick" style="display:none;">
+            <!--==温馨提示==-->
+            <font id="phoneMessage" style="display:none;"></font>
+
+            <font class="f1" id="tips">电视激活用户由此登录</font>
+            <strong>请确保你的手机畅通，用于接收验证码短信</strong>
+            <!--错误状态下的input有class="curr" em标签不显示-->
+            <ul>
+                <li><i class="i1"></i><input type="text" value="" maxlength="11" placeholder="请输入11位有效手机号" id="txtPhone"><button id="btnCode">获取验证码</button></li>
+                <li><i class="i2"></i><input type="text" value="" id="txtCode" placeholder="请输入验证码"><em style="display:none;"></em></li>
+                <li class="curr"><span><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.Register, '');" style="cursor:pointer;">新用户注册</a></span><label><input name="" type="checkbox" value="1" id="ckLogin2">下次自动登录</label><a style="cursor:pointer;" onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.FindPassword, '');">忘记密码</a></li>
+            </ul>
+            <p><a id="btnPhoneLogin" style="cursor:pointer;">登 录</a></p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var staticsub = [[], ["/JS/JValidator.js", "/JS/pages/Login.js", "/JS/ValidCodeBase.js"]];
+    AppendStatic(staticsub, function () {
+    });
+</script>
+<!--<script src="/JS/JValidator.js"></script>
+<script src="/JS/pages/Login.js"></script>
+<script src="/JS/ValidCodeBase.js"></script>-->
+<script type="text/javascript">
+    //测试记录用户行为
+    (function () {
+        window.page = "101013";
+        var gas = document.createElement("script");
+        gas.type = "text/javascript";
+        gas.async = true;
+        gas.src = cdn_path + "/JS/gas.js";
+
+        var l = document.getElementsByTagName("script").length;
+        var g = document.getElementsByTagName("script")[l - 1];
+        g.parentNode.insertBefore(gas, g);
+    })();
+</script>
+
+

@@ -1,0 +1,31 @@
+﻿<!--===内容 star===-->
+<div class="register">
+    <div class="fl">
+        <div class="cg">
+            <i></i>
+            <span>注册成功</span>
+            <a href="../Index.html">前往首页</a>
+            <em><b id="second">5</b>秒后自动跳转</em>
+        </div>
+    </div>
+    <div class="fr"><a><img src="http://win.image.ichsy.com/hjyweb/img/dome_01.jpg" alt=""></a></div>
+</div>
+<!--===内容 end===-->
+
+<script type="text/javascript">
+    $(function () {
+        //控制IndexMain样式
+        $("#nav1").parent().hide();
+        $("#mainContent").removeClass("main");
+
+        var second = 5;
+        var timmer = window.setInterval(function () {
+            $("#second").text(second);
+            --second;
+            if (second == 0) {
+                window.clearInterval(timmer);
+                window.location.href = "../Index.html";
+            }
+        }, 1000);
+    });
+</script>

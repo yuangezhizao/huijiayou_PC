@@ -1,0 +1,419 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <link rel="shortcut icon" href="http://win.image.ichsy.com/hjyweb/img/jyh.ico" type="image/vnd.microsoft.icon" />
+    <!--我自己加的看效果的-->
+    <link href="../css/style.css" rel="stylesheet">
+    <!--end-->
+    <title>惠家有</title>
+    <script src="/js/cdn.js"></script>
+    <script type="text/javascript">
+        var staticlist = [["/css/style.css"], ["/js/jquery.min.js", "/js/jsScroll.js", "/js/slide.js", "/JS/functions/g_Const.js", "/js/g_header.js", "/js/g_index.js", "/JS/functions/g_Type.js"]];
+        WriteStatic(staticlist);
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <!--===头部 star===-->
+        <div class="wrap_top">
+            <p module="202001">
+                <a class="fl" onclick="FavoritesOperator.Add();">收藏</a>
+                <a href="Index.html" target="_blank">首页</a><a id="topLogin">请登录</a>
+                <a class="on" id="topLoginName" style="display:none;"></a>
+                <a onclick="UserInfo.Logout();" id="topLoginOut" style="display:none;">退出</a>
+                <a id="topRegister">免费注册</a>
+                <span>|</span>
+                <font>购物车<a id="shoppingCartNum">0</a>件</font>
+                <a id="myJYH">我的家有</a>
+                <font>可用优惠劵<a id="discountNum">0</a>张</font>
+                <a id="myFavourites">我的收藏</a><span>|</span>
+                <label class="iphone"><a>手机版<strong class="tan"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm02.jpg" alt=""><em>惠家有APP</em></strong></a></label>
+                <label class="wx"><a>微信版<strong class="tan"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm01.jpg" alt=""><em>家有微信</em></strong></a></label>
+            </p>
+        </div>
+        <div class="head">
+            <div class="top" module="202002">
+                <h1><a href="Index.html"><img src="http://win.image.ichsy.com/hjyweb/img/logo.jpg" alt="惠家有" title="惠家有"></a></h1>
+                <div class="search">
+                    <input type="text" id="txtSearch" value="">
+                    <a id="btnSearch" class="s1">搜 索</a>
+                    <p id="hotWord" module="202005">
+                    </p>
+                    <!--====搜索关联====-->
+                    <div class="relevance" id="divAssociate" style="display:none;">
+                    </div>
+                </div>
+                <div class="fr" id="gou">
+                    <a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.Cart, '','','1');" class="gou">我的购物车<i id="i_totalnum_top">0</i></a>
+                    <em id="biao"></em>
+                    <div class="ware_list" id="ware_list" style="display:none">
+                        <!--==有商品===-->
+                        <div class="you" id="cart_yes">
+                            <h2>最新加入商品</h2>
+                            <ul class="bd" id="wrasList"></ul>
+                            <div class="ft">
+                                <span><a style="cursor:pointer" id="btnCart">去购物车</a></span>
+                                <font>共<i id="i_totalnum">0</i>件商品</font>
+                                <font>合计<b id="i_totalprice">￥0.00</b>元</font>
+                            </div>
+                        </div>
+                        <!--===没有商品===-->
+                        <div class="wu" style="display:none;" id="cart_no">
+                            购物车中还没有商品，赶紧去选购吧
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav" id="div_Menu">
+                <b id="nav1" class="curr">
+                    全部商品分类
+                    <div class="pop" id="navMain" style="display:none;">
+                        <div class="cont" id="pop" style="overflow:hidden;width:231px;height:560px" module="202011">
+                        </div>
+                    </div>
+                </b>
+                <ul module="2020012">
+                    <li><a href="Index.html" class="curr" style="cursor:pointer" target="_blank">首页</a></li>
+                    <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.TVShow, '', '', '1')" id="TVShow" style="cursor:pointer">TV直播</a></li>
+                    <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.BrandPreferenceList, '', '', '1')" id="BrandPreferenceList" style="cursor:pointer">品牌惠</a></li>
+                    <!--<li><a>海外购</a></li>-->
+                    <li><a href="/APP.html" style="cursor:pointer" target="_blank">惠家有APP</a></li>
+                    <li><a href="http://www.jyh.com/vip/index" target="_blank" style="cursor:pointer">家有尊享</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--===头部 end===-->
+        <!--===内容 star===-->
+        <div class="main" id="mainContent">
+            <ul class="commentsWrap">
+                <li class="com">
+                    <div class="goodInfo clearfix">
+                        <div class="goodPic">
+                            <img src="../img/dome_25.jpg" />
+                        </div>
+                        <div class="goodCon">
+                            <h3>我永久不弃的地方 我想永远守着你我永远的家乡 最终我会回来 安静的陪伴在你的身旁 无情的地方我想永远守着你我永远的家乡 最终我会回来 安静的陪伴在你的身旁 无情的地方</h3>
+                            <p><label>颜色</label>粉红色</p>
+                            <p><label>尺寸</label>165/84(M码)</p>
+                        </div>
+                    </div>
+                    <div class="com_degree clearfix">
+                        <label class="com_label">评价 : </label> 
+                        <ul class="com_star clearfix">
+                            <li class="on"></li>
+                            <li class="on"></li>
+                            <li class="on"></li>
+                            <li class="on"></li>
+                            <li class="on"></li>
+                        </ul>
+                        <ul class="com_con">
+                            <li class="deg1">很不满意</li>
+                            <li class="deg2">不满意</li>
+                            <li class="deg3">一般</li>
+                            <li class="deg4">比较满意</li>
+                            <li class="deg5">非常满意</li>
+                        </ul>
+                    </div>
+                    <textarea placeholder="写下您的购物体验，可以为其他小伙伴提供参考哦~"></textarea>
+                    <div class="com_imgs_up clearfix">
+                        <ul class="com_imgs ">
+                            <li class="act">
+                                <img src="../img/dome_25.jpg" />
+                                <b class="img_delete"></b>
+                                <b class="img_arrow"></b>
+                            </li>
+                            <li>
+                                <img src="../img/dome_08.png" />
+                                <b class="img_delete"></b>
+                                <b class="img_arrow"></b>
+                            </li>
+                        </ul>
+                        <div class="uploadimg"></div>
+                        <div class="img2big">
+                            <img src="../img/dome_25.jpg" />
+                            <span class="img_delete2">删除</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="com">
+                    <div class="goodInfo clearfix">
+                        <div class="goodPic">
+                            <img src="../img/dome_25.jpg" />
+                        </div>
+                        <div class="goodCon">
+                            <h3>我永久不弃的地方 我想永远守着你我永远的家乡 最终我会回来 安静的陪伴在你的身旁 无情的地方</h3>
+                            <p><label>颜色</label>粉红色</p>
+                            <p><label>尺寸</label>165/84(M码)</p>
+                        </div>
+                    </div>
+                    <div class="com_degree clearfix">
+                        <label class="com_label">评价 : </label>
+                        <ul class="com_star clearfix">
+                            <li class="on"></li>
+                            <li class="on"></li>
+                            <li class="on"></li>
+                            <li class="on"></li>
+                            <li class="on"></li>
+                        </ul>
+                        <ul class="com_con">
+                            <li class="deg1">很不满意</li>
+                            <li class="deg2">不满意</li>
+                            <li class="deg3">一般</li>
+                            <li class="deg4">比较满意</li>
+                            <li class="deg5">非常满意</li>
+                        </ul>
+                    </div>
+                    <textarea placeholder="写下您的购物体验，可以为其他小伙伴提供参考哦~"></textarea>
+                    <div class="com_imgs_up clearfix">
+                        <ul class="com_imgs">
+                            <li class="">
+                                <img src="../img/dome_25.jpg" />
+                                <b class="img_delete"></b>
+                                <b class="img_arrow"></b>
+                            </li>
+                            <li>
+                                <img src="../img/dome_08.png" />
+                                <b class="img_delete"></b>
+                                <b class="img_arrow"></b>
+                            </li>
+                        </ul>
+                        <div class="uploadimg"></div>
+                        <div class="img2big">
+                            <img src="../img/dome_25.jpg" />
+                            <span class="img_delete2">删除</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <!--===内容 end===-->
+    </div>
+    <ul class="warrant" id="ul_warrant"></ul>
+    <!--====弹出窗 star====-->
+    <div class="popup" style="display:none; z-index:9999" id="messageShow">
+        <i></i>
+        <div class="cont">
+            <div class="all">
+                <a class="close">X</a>
+                <div class="bd" id="message">
+                    <b id="sp_msg"></b>
+                    <!--<a href="#">去购物车看看</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="customs-pop" style="display:none;" id="ConfirmMessage">
+        <i></i>
+        <div class="cont">
+            <h2><a href="">关闭</a></h2>
+            <div class="bd" id="message">
+                <p id="confirm_sp_msg"></p>
+                <b><a id="btnCancel">取消</a><a id="btnConfirm">确认</a></b>
+            </div>
+        </div>
+    </div>
+    <!--====弹出窗 end====-->
+    <!--==添加地址弹出框==-->
+    <div id="div_address" class="add_pop" style="display:none;z-index:9000;" module="202041">
+        <i></i>
+        <div class="cont">
+            <h2><a>关闭</a><span></span></h2>
+            <ul>
+                <li><b><em>*</em>收货人：</b><input type="text" value="" id="txtName"><span></span></li>
+                <li>
+                    <b><em>*</em>所在地区：</b>
+                    <select id="selProv"></select>
+                    <select id="selCity"></select>
+                    <select id="selDistrict"></select><span></span>
+                </li>
+                <li><b><em>*</em>详细地址：</b><input type="text" value="" class="text" id="txtAddressDetail"><span></span></li>
+                <li><b>邮编：</b><input type="text" value="" id="txtPostcode"><span></span></li>
+                <li><b><em>*</em>联系电话：</b><input type="text" value="" id="txtPhoneNo"><span></span></li>
+                <li>
+                    <b><em></em>身份证号：</b><input type="text" value="" id="txtIDno"><span></span>
+                    <p>提示：购买海外商品，海关需验证收货人身份证信息，请填写与收货人姓名一致的身份证号！否则将下单失败！</p>
+                </li>
+                <li>
+                    <b><em>*</em>设置默认地址：</b><label><input type="radio" value="1" name="isdefault" id="isdefault_1">是</label><label><input type="radio" name="isdefault" value="0" id="isdefault_0">否</label>
+                    <span id="disSave" style="display:none;"></span>
+                </li>
+                <li class="curr"><a  id="btn_saveaddress">保存收货地址</a><input type="hidden" id="txtAid" value="" /><input type="hidden" id="txtEmail" value="" /></li>
+            </ul>
+        </div>
+    </div>
+    <!--===右侧浮动 star===-->
+    <ul class="drift">
+        <li class="l1"><a ><strong class="tan2"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm02.jpg" alt=""><em>惠家有APP</em></strong></a></li>
+        <li class="l2"><a ><strong class="tan2"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm01.jpg" alt=""><em>家有微信</em></strong></a></li>
+        <li class="l3" id="back-to-top"><a >返回顶部</a></li>
+    </ul>
+    <!--===右侧浮动 end===-->
+    <!--===底部 star===-->
+    <div class="foot" module="202050"  style="display:block">
+        <div class="cont">
+            <div class="fl">
+                <dl>
+                    <dt><a >关于我们</a></dt>
+                    <dd><a >公司介绍</a></dd>
+                    <dd><a >新闻报道</a></dd>
+                    <dd><a >招聘信息</a></dd>
+                    <dd><a >联系我们</a></dd>
+                </dl>
+                <dl>
+                    <dt><a >订购指南</a></dt>
+                    <dd><a >交易条款</a></dd>
+                    <dd><a >注册/购物流程</a></dd>
+                    <dd><a >退/换货</a></dd>
+                    <dd><a >积分说明</a></dd>
+                    <dd><a >发票指南</a></dd>
+                    <dd><a >会员制度说明</a></dd>
+                </dl>
+                <dl>
+                    <dt><a >配送服务</a></dt>
+                    <dd><a >配送方式</a></dd>
+                    <dd><a >配送区域</a></dd>
+                    <dd><a >配送时间</a></dd>
+                    <dd><a >免费配送</a></dd>
+                    <dd><a >限时送达</a></dd>
+                    <dd><a >验货与签收</a></dd>
+                </dl>
+                <dl>
+                    <dt><a >支付方式</a></dt>
+                    <dd><a >网上支付</a></dd>
+                    <dd><a >货到付款</a></dd>
+                    <dd><a >银行汇款</a></dd>
+                    <dd><a >家有卡</a></dd>
+                </dl>
+                <dl>
+                    <dt><a >合作专区</a></dt>
+                    <dd><a >成为供应商</a></dd>
+                    <dd><a >供应商系统</a></dd>
+                    <dd><a >合作伙伴</a></dd>
+                </dl>
+            </div>
+            <div class="fr">
+                <ul class="hd">
+                    <li><img src="http://win.image.ichsy.com/hjyweb/img/ewm01.jpg" alt="家有微信">家有微信</li>
+                    <li><img src="http://win.image.ichsy.com/hjyweb/img/ewm02.jpg" alt="惠家有APP">惠家有APP</li>
+                </ul>
+                <p>
+                    <b>4008-678-210</b>
+                    <i>客服 7x24小时 (全年无休)</i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer" module="202050">
+        <div class="cont">
+            <p  style="display:block">
+                <a >关于家有</a>
+                <span>|</span>
+                <a >媒体关注</a>
+                <span>|</span>
+                <a >联系我们</a>
+                <span>|</span>
+                <a >诚聘英才</a>
+                <span>|</span>
+                <a >校园招聘</a>
+                <span>|</span>
+                <a >全部品牌</a>
+                <span>|</span>
+                <a >投诉建议</a>
+            </p>
+            <p id="friendLinkList" module="202051">
+            </p>
+            <p>Copyright © 2008-2013 jiayougo.com <a >北京家有德顺文化发展有限公司</a> 版权所有 黔ICP备13002365号  增值电信业务经营许可证：黔B2-20120036</p>
+            <ul style ="display:none">
+                <!--<li><a ><img src="/img/img01.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img02.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img03.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img04.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img05.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img06.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img07.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img08.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img09.jpg" alt=""></a></li>-->
+            </ul>
+        </div>
+    </div>
+    <!--===底部 end===-->
+    <!--==页面动态效果==-->
+    <!--
+    <script type="text/javascript">
+        $(function () {
+            g_index.Init();
+        });
+    </script>
+    <script type="text/javascript">
+        var staticlist = [[], ["/JS/pages/Category.js", "/JS/pages/Account.js", "/JS/Search.js", "/js/main.js", "/JS/FriendLinks.js"]];
+        WriteStatic(staticlist);
+    </script>
+    -->
+
+
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function(){
+            //星星评分
+            $(".com_star").each(function(){
+                $(this).find("li").click(function(){
+                    var index=$(this).index();
+                    $(this).parent().children().removeClass("on");
+                    for(var i=0;i<=index;i++){
+                        $(this).parent().children().eq(i).addClass("on");
+                    }
+                    //............
+                    $(this).parent().parent().find(".com_con li").hide();
+                    $(this).parent().parent().find(".com_con li").eq(index).show();
+                })
+            })
+
+            //............图片上传 img_delete\
+            $(".com_imgs li").mouseenter(function(){
+                $(this).find(".img_delete").show();
+
+             })
+             $(".com_imgs li").mouseleave(function(){
+                $(this).find(".img_delete").hide();
+
+             })
+             //
+            $(".com_imgs").each(function(){
+                $(this).find(".img_delete").click(function(){
+                    var oSrc1=$(this).parent().find("img").attr("src");
+                    var a = $(this).parents(".com_imgs_up").find(".img2big img");
+                    var oSrc2=a.attr("src");
+                    $(this).parent().remove();
+                    if(oSrc1==oSrc2){
+                        a.attr("src","");
+                        a.parent().hide();
+                    }
+                 })
+            })
+            //
+             $(".img_delete2").click(function(){
+                $(this).parent().hide();
+
+             })
+             //
+             $(".com_imgs").each(function(){
+                $(this).find("li").click(function(){
+                    var oSrc=$(this).find("img").attr("src");
+                    $(this).parent().children().removeClass("act");
+                    $(this).parent().children().find(".img_arrow").hide();
+                    $(this).addClass("act");
+                    $(this).find(".img_arrow").show();
+                    $(this).find(".img_delete").hide();
+                    $(this).parents(".com_imgs_up").find(".img2big img").attr("src",oSrc);
+                    $(this).parents(".com_imgs_up").find(".img2big").show();
+                })
+            })
+
+         })
+    </script>
+</body>
+</html>

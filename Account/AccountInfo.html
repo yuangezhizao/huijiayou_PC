@@ -1,0 +1,103 @@
+﻿<!--===内容 star===-->
+<div class="home">
+    <ul class="fl"></ul>
+    <div class="fr">
+        <div class="homepage">
+            <!--<div class="hd">
+                <i><img src="img/dome_25.jpg" id="topImgHeadUrl" alt=""></i>
+                <p>
+                    <b><strong id="nickName"></strong>，欢迎您！</b>
+                    <font id="defaultAddress">
+                        <span>收货地址：</span>
+                        <em>[默认]</em>
+                        北京 北京市 海淀区 北太平庄街道北大街32号院枫蓝国际中心B座
+                    </font>
+                    <font>
+                        <a >设置个人信息</a>
+                        <a >修改密码</a>
+                        <a >编辑收货地址</a>
+                    </font>
+                </p>
+            </div>-->
+            <div class="bd">
+                <h1>设置个人信息</h1>
+                <div class="info">
+                    <ul>
+                        <li class="curr">
+                            <b>头&emsp;像</b>
+                            <label style="cursor:pointer;">
+                                <form id="formImg" method="post" action="/Ajax/API.aspx?action=uploadimg" enctype="multipart/form-data">
+                                    <input type="file" name="fileHeadImg" id="fileHeadImg" value="" onchange="MemberInfo.UpLoadImg();">
+                                    <i>编辑头像</i>
+                                </form>
+                                <img src="http://win.image.ichsy.com/hjyweb/img/mrtx.jpg" data-url="" id="imgHeadUrl" alt="" style="width:120px; height:120px">
+                            </label>
+                        </li>
+                        <li id="phone" data-phone="">
+                            <b>手&emsp;机</b>
+
+                        </li>
+                        <li>
+                            <b>昵&emsp;称</b>
+                            <input id="txtNickName" type="text" value="" placeholder="请输入您的昵称" max="30" class="">
+                            <em class="e1" id="emNickName" style="display:none;">请输入正确的昵称</em>
+                        </li>
+                        <li>
+                            <b>性&emsp;别</b>
+                            <label>
+                                <input name="rdSex" type="radio" checked="checked" value="Man">男
+                            </label>
+                            <label>
+                                <input name="rdSex" type="radio" value="Woman">女
+                            </label>
+                            <label>
+                                <input name="rdSex" type="radio" value="Secrecy">保密
+                            </label>
+                        </li>
+                        <li>
+                            <b>生&emsp;日</b>
+                            <span>
+                                <select id="birYear"></select>
+                                年
+                            </span>
+                            <span>
+                                <select id="birMonth"></select>
+                                月
+                            </span>
+                            <span>
+                                <select id="birDate"></select>
+                                日
+                            </span>
+                        </li>
+                        <li>
+                            <b>邮&emsp;箱</b>
+                            <input type="text" id="txtEmail" value="" placeholder="请输入您的邮箱">
+                            <em style="display:none;" id="emEmail"></em>
+                        </li>
+                    </ul>
+                    <p><a  onclick="MemberInfo.CheckMemberInfo();">保  存</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/template" id="tpl_menu">
+    <li><a href="{{menulink}}" class="{{menuclass}}">{{menuname}}</a></li>
+</script>
+<!--===内容 end===-->
+<script type="text/javascript">
+    var staticsub = [[], ["/JS/pages/BirthDay.js", "/JS/JValidator.js", "/JS/pages/MemberInfo.js", "/JS/jquery.form.min.js", "/JS/functions/AccountMenu.js"]];
+    AppendStatic(staticsub, function () {
+        g_birthDay.Init({
+            YearSelector: "#birYear",
+            MonthSelector: "#birMonth",
+            DaySelector: "#birDate"
+        });
+        MemberInfo.Init();
+    });
+</script>
+<!--<script src="/JS/pages/BirthDay.js"></script>
+<script src="/JS/JValidator.js"></script>
+<script src="/JS/pages/MemberInfo.js"></script>
+<script src="/JS/jquery.form.min.js"></script>
+<script src="/JS/functions/AccountMenu.js"></script>-->

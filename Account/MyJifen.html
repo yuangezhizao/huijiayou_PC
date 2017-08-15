@@ -1,0 +1,46 @@
+﻿	<!--===内容 star===-->
+<div class="home">
+    <ul class="fl">
+        
+    </ul>
+    <div class="fr">
+        <div class="saving">
+            <h2>可用积分：<b></b><i></i></h2>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th width="260"><select id="sel_year"></select></th>
+                        <th width="240">获得积分</th>
+                        <th width="220">消耗积分</th>
+                        <th width="280">详细说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+            <div class="pag"><span id="PaginationTB"></span></div>
+        </div>
+    </div>
+</div>
+<script type="text/template" id="tpl_menu">
+    <li><a href="{{menulink}}" class="{{menuclass}}">{{menuname}}</a></li>
+</script>
+<script type="text/template" id="tpl_jifenlist">
+    <tr>
+        <td>{{jifentime}}</td>
+        <td>{{jifenin}}</td>
+        <td>{{jifenout}}</td>
+        <td>{{jifenmemo}}</td>
+    </tr>
+</script>
+<script type="text/javascript">
+    var staticsub = [[], ["/JS/functions/AccountMenu.js", "/JS/pages/MyJiFen.js", "/JS/jquery.pagination.js"]];
+    AppendStatic(staticsub, function () {
+        page_my_jifen.Init();
+    });
+</script>
+<!--<script src="/JS/functions/AccountMenu.js"></script>
+<script src="/JS/pages/MyJiFen.js"></script>
+<script src="/JS/jquery.pagination.js"></script>-->
+<!--===内容 end===-->

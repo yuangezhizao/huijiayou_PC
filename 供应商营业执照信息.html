@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <title>惠家有-供应商营业执照信息</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <!--===头部 star===-->
+        <div class="wrap_top">
+            <p module="202001">
+                <a class="fl" onclick="FavoritesOperator.Add();">收藏</a>
+                <a href="Index.html" target="_self">首页</a><a id="topLogin">请登录</a>
+                <a class="on" id="topLoginName" style="display:none;"></a>
+                <a onclick="UserInfo.Logout();" id="topLoginOut" style="display:none;">退出</a>
+                <a id="topRegister">免费注册</a>
+                <span>|</span>
+                <font id="fontShoppingCart">购物车<a id="shoppingCartNum">0</a>件</font>
+                <a id="myJYH">我的家有</a>
+                <font id="fontDiscount">可用优惠劵<a id="discountNum">0</a>张</font>
+                <a id="myFavourites">我的收藏</a><span>|</span>
+                <label class="iphone"><a>手机版<strong class="tan"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm022.jpg" alt=""><em>惠家有APP</em></strong></a></label>
+                <label class="wx"><a>微信版<strong class="tan"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm011.jpg" alt=""><em>惠家有微信</em></strong></a></label>
+            </p>
+        </div>
+        <div class="head">
+            <div class="top" module="202002">
+                <h1><a href="Index.html"><img src="http://win.image.ichsy.com/hjyweb/img/logo.jpg" alt="惠家有" title="惠家有"></a></h1>
+                <div class="search">
+                    <input type="text" id="txtSearch" value="">
+                    <a id="btnSearch" class="s1">搜 索</a>
+                    <p id="hotWord" module="202005"><a class="curr" onclick="Hotword.SetSearch('金秋风暴')">金秋风暴</a> <a class="" onclick="Hotword.SetSearch('惠人')">惠人</a> <a class="" onclick="Hotword.SetSearch('香水')">香水</a> <a class="" onclick="Hotword.SetSearch('大衣')">大衣</a> <a class="" onclick="Hotword.SetSearch('手机')">手机</a> <a class="" onclick="Hotword.SetSearch('飞利浦')">飞利浦</a> </p>
+                    <!--====搜索关联====-->
+                    <div class="relevance" id="divAssociate" style="display:none;">
+                    </div>
+                </div>
+                <div class="fr" id="gou">
+                    <a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.Cart, '','','1');" class="gou">我的购物车<i id="i_totalnum_top">0</i></a>
+                    <em id="biao" style="display: none;"></em>
+                    <div class="ware_list" id="ware_list" style="display: none;">
+                        <!--==有商品===-->
+                        <div class="you" id="cart_yes" style="display: none;">
+                            <h2>最新加入商品</h2>
+                            <ul class="bd description2" id="wrasList"></ul>
+                            <div class="ft">
+                                <span><a style="cursor:pointer" id="btnCart">去购物车</a></span>
+                                <font>共<i id="i_totalnum">0</i>件商品</font>
+                                <font>合计<b id="i_totalprice">￥0.00</b>元</font>
+                            </div>
+                        </div>
+                        <!--===没有商品===-->
+                        <div class="wu" style="" id="cart_no">
+                            购物车中还没有商品，赶紧去选购吧
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav" id="div_Menu" style="display: none;">
+                <b id="nav1" class="curr">
+                    全部商品分类
+                    <div class="pop description ps-container" id="navMain" style="display: none;">
+                        <div class="" id="pop" module="202011"><a onclick="Category.Load_ProductList('category','热门推荐');" id="li_level_0">热门推荐</a><a onclick="Category.Load_ProductList('category','厨房电器');" id="li_level_1">厨房电器</a><a onclick="Category.Load_ProductList('category','服装服饰');" id="li_level_2">服装服饰</a><a onclick="Category.Load_ProductList('category','家纺用品');" id="li_level_3">家纺用品</a><a onclick="Category.Load_ProductList('category','厨房用品');" id="li_level_4">厨房用品</a><a onclick="Category.Load_ProductList('category','美容护肤');" id="li_level_5">美容护肤</a><a onclick="Category.Load_ProductList('category','食品饮料');" id="li_level_6">食品饮料</a><a onclick="Category.Load_ProductList('category','箱包配饰');" id="li_level_7">箱包配饰</a><a onclick="Category.Load_ProductList('category','运动健康');" id="li_level_8">运动健康</a><a onclick="Category.Load_ProductList('category','生活家居');" id="li_level_9">生活家居</a><a onclick="Category.Load_ProductList('category','生活电器');" id="li_level_10">生活电器</a><a onclick="Category.Load_ProductList('category','test');" id="li_level_11">test</a><a onclick="Category.Load_ProductList('category','pc版');" id="li_level_12">pc版</a><a onclick="Category.Load_ProductList('category','移动端');" id="li_level_13">移动端</a><a onclick="Category.Load_ProductList('category','分类过多的显示名称过长显示样式');" id="li_level_14">分类过多的显示名称过长显示样式</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_15">1</a><a onclick="Category.Load_ProductList('category','haml');" id="li_level_16">haml</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_17">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_18">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_19">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_20">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_21">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_22">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_23">1</a><a onclick="Category.Load_ProductList('category','3C数码');" id="li_level_24">3C数码</a><a onclick="Category.Load_ProductList('category','推荐品类');" id="li_level_25">推荐品类</a></div>
+                    <div class="ps-scrollbar-x-rail" style="width: 231px; display: none; left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 560px; display: none; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
+                </b>
+                <ul module="2020012">
+                    <li><a href="Index.html" class="" style="cursor:pointer" target="_self">首页</a></li>
+                    <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.TVShow, '', '', '0')" id="TVShow" style="cursor:pointer">TV直播</a></li>
+                    <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.BrandPreferenceList, '', '', '0')" id="BrandPreferenceList" style="cursor:pointer">品牌惠</a></li>
+                    <!--<li><a>海外购</a></li>-->
+                    <li><a href="/APP.html" style="cursor:pointer" target="_self">惠家有APP</a></li>
+                    <li><a href="http://www.jiayouvip.cn" target="_self" style="cursor:pointer">家有尊享</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--===头部 end===-->
+        <!--===内容 star===-->
+        <div class="" id="mainContent">
+			<div class="license">
+				<h1><span>供应商营业执照信息</span></h1>
+				<p class="toLookLicense">根据国家工商总局《网络交易管理办法》要求供应商营业执照信息公示如下</p>
+				<div class="int">
+					<input type="text" placeholder="请输入图片验证码" /><img src="img/LoginHandler.png">
+				</div>
+				<a class="btn">确定</a>
+				<img src="img/b.jpg" class="pic"/>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

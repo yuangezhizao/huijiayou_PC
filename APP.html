@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base target="_blank">
+    <link rel="shortcut icon" href="http://win.image.ichsy.com/hjyweb/img/jyh.ico" type="image/vnd.microsoft.icon" />
+    <title>惠家有-APP展示</title>
+    <script src="/js/cdn.js"></script>
+    <script type="text/javascript">
+        var staticlist = [["/css/style.css"], ["/js/jquery.min.js", "/js/jsScroll.js", "/js/slide.js", "/JS/functions/g_Const.js", "/js/g_header.js", "/js/g_index.js", "/JS/functions/g_Type.js"]];
+        WriteStatic(staticlist);
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <!--===头部 star===-->
+        <div class="wrap_top">
+            <p module="202001">
+                <a class="fl" onclick="FavoritesOperator.Add();" style="cursor:pointer">收藏</a>
+                <a href="Index.html">首页</a><a id="topLogin" style="cursor:pointer">请登录</a>
+                <a class="on" id="topLoginName" style="display:none;"></a>
+                <a onclick="UserInfo.Logout();" id="topLoginOut" style="display:none;">退出</a>
+                <a id="topRegister" style="cursor:pointer">免费注册</a>
+                <span>|</span>
+                <font>购物车<a id="shoppingCartNum" style="cursor:pointer">0</a>件</font>
+                <a id="myJYH" style="cursor:pointer">我的家有</a>
+                <font>可用优惠劵<a id="discountNum" style="cursor:pointer">0</a>张</font>
+                <a id="myFavourites" style="cursor:pointer">我的收藏</a><span>|</span>
+                <label class="iphone"><a>手机版<strong class="tan"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm022.jpg" alt=""><em>惠家有APP</em></strong></a></label>
+                <label class="wx"><a>微信版<strong class="tan"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm011.jpg" alt=""><em>家有微信</em></strong></a></label>
+            </p>
+        </div>
+        <!--===头部 end===-->
+        <!--===内容 star===-->
+        <div class="app">
+            <!-- <div class="cont">
+                <dl><dt><img src="http://win.image.ichsy.com/hjyweb/img/ewm03.jpg" alt=""></dt><dd>扫描二维码下载APP</dd></dl>
+                <p><b><img src="http://win.image.ichsy.com/hjyweb/img/icon_3.png" alt=""></b><span>惠家有优选国内外精致家居好物！手机看直播买商品，全方位了解，还能足不出户逛海淘，重要的是免税免邮，全部官方正品，方便实惠尽在惠家有。</span></p>
+            </div> -->
+            <a href="http://www.jyh.com/IndexMain.html?u=Register" target="_blank"><img src="http://win.image.ichsy.com/hjyweb/img/img-APP/1.jpg" style="display:block;width:100%;"></a>
+            <a href="http://www.jyh.com/IndexMain.html?u=TVShow" target="_blank"><img src="http://win.image.ichsy.com/hjyweb/img/img-APP/2.jpg" style="display:block;width:100%;"></a>
+            <a href="http://www.jyh.com/IndexMain.html?u=FlashSale" target="_blank"><img src="http://win.image.ichsy.com/hjyweb/img/img-APP/3.jpg" style="display:block;width:100%;"></a>
+            <a href="http://www.jyh.com/IndexMain.html?u=SearchList&showtype=category&keyword=%E6%B5%B7%E5%A4%96%E8%B4%AD" target="_blank"><img src="http://win.image.ichsy.com/hjyweb/img/img-APP/4.jpg" style="display:block;width:100%;"></a>
+</div>
+        <!--===内容 end===-->
+    </div>
+    <!--====弹出窗 star====-->
+    <div class="popup" style="display:none; z-index:9999" id="messageShow">
+        <i></i>
+        <div class="cont">
+            <div class="all">
+                <a class="close">X</a>
+                <div class="bd" id="message">
+                    <b id="sp_msg"></b>
+                    <!--a href="#">去购物车看看</!--a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====弹出窗 end====-->
+
+    <!--===底部 star===-->
+    <div class="footer" module="202050">
+        <div class="cont">
+            <!--<p>
+                <a href="javascript:void(0)">关于家有</a>
+                <span>|</span>
+                <a href="javascript:void(0)">媒体关注</a>
+                <span>|</span>
+                <a href="javascript:void(0)">联系我们</a>
+                <span>|</span>
+                <a href="javascript:void(0)">诚聘英才</a>
+                <span>|</span>
+                <a href="javascript:void(0)">校园招聘</a>
+                <span>|</span>
+                <a href="javascript:void(0)">全部品牌</a>
+                <span>|</span>
+                <a href="javascript:void(0)">投诉建议</a>
+            </p>
+            <p id="friendLinkList" module="202051">
+                友情链接：
+                <a href="javascript:void(0)">购物频道</a>
+                <a href="javascript:void(0)">韩都衣舍</a>
+                <a href="javascript:void(0)">易购网</a>
+                <a href="javascript:void(0)">华为商城</a>
+                <a href="javascript:void(0)">佐卡伊珠宝网</a>
+                <a href="javascript:void(0)">华强北淘鞋网</a>
+                <a href="javascript:void(0)">团购王</a>
+                <a href="javascript:void(0)">中国零食网</a>
+                <a href="javascript:void(0)">腕表名表</a>
+                <a href="javascript:void(0)">什么值得买</a>
+                <a href="javascript:void(0)">太平洋家居网</a>
+                <a href="javascript:void(0)">华强北淘鞋网</a>
+                <a href="javascript:void(0)">团购王</a>
+                <a href="javascript:void(0)">中国零食网</a>
+                <a href="javascript:void(0)">腕表名表</a>
+                <a href="javascript:void(0)">什么值得买</a>
+                <a href="javascript:void(0)">更多&gt;&gt;</a>
+            </p>-->
+            <p>Copyright © 2008-2013 jiayougo.com <a>北京家有德顺文化发展有限公司</a> 版权所有 黔ICP备13002365号  增值电信业务经营许可证：黔B2-20120036</p>
+            <ul>
+                <!--<li><a href="javascript:void(0)"><img src="/img/img01.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="/img/img02.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="/img/img03.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="/img/img04.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="/img/img05.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="/img/img06.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="/img/img07.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="/img/img08.jpg" alt=""></a></li>
+                <li><a href="javascript:void(0)"><img src="/img/img09.jpg" alt=""></a></li>-->
+            </ul>
+        </div>
+    </div>
+    <!--===底部 end===-->
+    <script type="text/javascript">
+        var staticlist = [[], ["/JS/pages/Account.js", "/js/main.js"]];
+        WriteStatic(staticlist);
+    </script>
+</body>
+</html>

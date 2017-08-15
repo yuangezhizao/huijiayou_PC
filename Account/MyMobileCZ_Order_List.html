@@ -1,0 +1,61 @@
+﻿    
+<div class="home">
+    <ul class="fl" module="202036"></ul>
+    <div class="fr">
+        <div class="my-order">
+            <div class="bd" id="u_cont" module="202070">
+                <div class="order-list" id="my_order_list_str">
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/template" id="tpl_menu">
+    <li><a href="{{menulink}}" class="{{menuclass}}">{{menuname}}</a></li>
+</script>
+
+<!--选择的订单号-->
+    <input type="hidden" id="sel_order_code" value="" />
+    <!--选择的订单状态-->
+    <input type="hidden" id="sel_order_status" value="" />
+    <!--订单总页数-->
+    <input type="hidden" id="hid_sumpage" value="0" />
+
+    <!--页码-->
+    <input type="hidden" id="sel_nextPage" value="1" />
+    <!--点击的按钮-->
+    <input type="hidden" id="sel_btn_name" value="" />
+    <!--起始坐标-->
+    <input id="touchStart" type="hidden" />
+    <!--结果计算-->
+    <input id="touchMove" type="hidden" />
+    <!--下拉显示的层-->
+    <div id="div_scrolldown" class="d_refresh" style="display:none">
+    </div>
+
+    
+    <!--确认窗口  开始-->
+    <!--<div id="fbox_ftel" class="fbox ftel" style="display:none">
+        <div id="sc_jxtx" class="sc jxtx"><span>确定要取消订单吗？</span></div>
+        <div class="btns">
+            <a operate="no">取消</a><a class="ok" operate="yes">确定</a>
+        </div>
+    </div>
+    <div id="mask" style="display:none;z-index:20;">&nbsp;</div>-->
+    <div id="fbox_ftel">
+    </div>
+    <!--确认窗口  结束-->
+    <!--底部-->
+    <!--<script src="/JS/pages/MyMobileCZ_Order_List.js"></script>
+    <script src="/JS/g_footer.js"></script>-->
+    <script type="text/javascript"> 
+        var staticsub = [[], ["/JS/functions/AccountMenu.js", "/JS/pages/MyMobileCZ_Order_List.js", "/JS/jquery.pagination.js"]];
+        AppendStatic(staticsub, function () {
+            //   MyMobileCZ_Order_List.Init();
+            $("#loadTip").show();
+            UserLogin.Check(MyMobileCZ_Order_List.Init);
+        });
+    </script>

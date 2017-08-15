@@ -1,0 +1,16 @@
+﻿	<!--===内容 star===-->
+<div class="logistics">
+    <div class="hd" id="div_wl"><h2>物流动态</h2><span>订单号：<i id="i_orderno"></i> <i id="i_baoguoshow"></i></span></div>
+    <ul class="bd" id="ul_wl">
+
+    </ul>
+</div>
+<!--===内容 end===-->
+<script type="text/javascript">
+    var staticsub = [[], ["/JS/functions/AccountMenu.js", "/JS/pages/MyOrder_List_ckwl.js"]];
+    AppendStatic(staticsub, function () {
+        MyOrder_wl.GetList();
+    });
+</script>
+<!--<script src="/JS/functions/AccountMenu.js"></script>
+<script src="/JS/pages/MyOrder_List_ckwl.js"></script>-->

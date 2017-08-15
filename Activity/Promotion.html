@@ -1,0 +1,26 @@
+﻿<!--===内容 star===-->
+<div class="active" id="">
+    <div class="banner" id="promotionBanner" style="display:none"></div>
+    <div id="PromotionList" module="202029"></div>
+</div>
+<!--===内容 end===-->
+<script type="text/template" id="stmpPromotion">
+    <li id="{{Tag}}">
+        <a onclick="{{Link}}" class="{{IsSaleOut}}">
+        {{EndStyle}}
+        <span>{{Discount}}折</span>
+        <img src="{{ImgUrl}}" style="width:200px;" alt="">
+        <b>{{ProductName}}</b>
+        <font>￥{{SalePrice}}<i>￥{{MarkPrice}}</i></font>
+        <strong class="{{ClassName}}" onclick="BtnBuy">{{BtnName}}</strong>
+        </a>
+    </li>
+</script>
+<script type="text/javascript">
+    window.page = "102002";
+    var staticsub = [[], ["/JS/pages/Promotion.js"]];
+    AppendStatic(staticsub, function () {
+        Promotion.GetData();
+    });
+</script>
+

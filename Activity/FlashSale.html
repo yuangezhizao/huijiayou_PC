@@ -1,0 +1,19 @@
+﻿<!--===内容 star===-->
+<div class="current">
+    <ul class="hd" id="divActivitylist"></ul>
+    <div class="bd">
+        <div class="xian"></div>
+        <ul id="divActivityProduct" module="202040"></ul>
+    </div>
+</div>
+<!--===内容 end===-->
+<script type="text/javascript">
+    window.page = "101058";
+    var staticsub = [[], ["/JS/pages/FlashSale.js"]];
+    AppendStatic(staticsub, function () {
+        Fun.Load(FlashActive.GetList);
+    });
+    $(function () {
+        g_index.Warrant();
+    });
+</script>

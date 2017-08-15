@@ -1,0 +1,295 @@
+﻿<div class="details">
+    <h2><a id="btnAllProduct" style="cursor:pointer">全部商品</a><span id="span_Category"></span></h2>
+    <div class="show">
+        <div class="fl">
+            <div class="small">
+                <!--====class="up curr"为不可点击状态，如没有curr是正常可点击状态====-->
+                <a class="up curr"></a>
+                <div style="position:relative;height:444px;overflow:hidden;">
+                    <ul id="ulSlider" style="position:absolute;"></ul>
+                </div>
+                <!--====class="down curr"为不可点击状态，如没有curr是正常可点击状态====-->
+                <a class="down"></a>
+            </div>
+            <div class="big" id="big">
+                <img id="mainImg" alt="">
+                <i id="isSoldOut" style="display:none">售 罄</i>
+                <a href="#" style="display:none">图片展示</a>
+                <b class="big_mask" id="big_mask"></b>
+				<span id="sc" class="collection">收藏</span>
+            </div>
+        </div>
+        <div class="b" id="b">
+            <img src="" />
+        </div>
+        <div class="fr">
+            <h3 id="productName"></h3>
+            <div class="bd" module="202042">
+                <p class="price"></p>
+                <p class="num"></p>
+                <p class="shou"></p>
+                <div class="song clearfix" id="addressSelect" style="display:none;">
+                    <b class="song_lab">送货区域</b>
+                    <div class="songAddr">
+                        <span class="songAddr_cur" id="defaultAddress" cityid="0"></span>
+                        <span class="songAddr_btn"></span>
+                    </div>
+                    <div class="good_tip" id="tipMessage" style="display:none;">
+                        <span class="please" style="display:none;">请选择配送区域！</span>
+                        <span class="you" style="display:none;">有货</span>
+                        <span class="wu" style="display:none;">无货</span>
+                    </div>
+                    <div class="song_dialog">
+                        <span class="dia_close"></span>
+                        <p class="dia_addr"><label>常用地址 ：</label><span id="usedAddress"></span></p>
+                        <ul class="dia_addr_select clearfix" id="addressNav">
+                            <li id="selectProvince">
+                                <b>选择省</b>
+                                <i></i>
+                            </li>
+                            <li id="selectCity">
+                                <b>选择市</b>
+                            </li>
+                        </ul>
+                        <ul class="dia_addr_list clearfix" id="addressContent"></ul>
+                    </div>
+                </div>
+                <p class="gift" id="promotion" module="202047">
+                </p>
+                <!--促销 更改样式测试2017-03-03-->
+                <p class="gift" id="promotion" module="202047">
+                    <!--<b>促销</b>
+                    <span>
+                        <label>
+                            <i class="zengpin">赠品</i><strong title="50/3">毛巾100条</strong>
+                            <a style="cursor:pointer" class="xq">详情 &gt;&gt;</a>
+                        </label>
+                        <label>
+                            <i class="duomai">多买优惠</i><strong title="50/3">毛巾100条</strong>
+                        </label>
+                        <label>
+                            <i class="Nyuan">N元任选</i><strong title="50/3">毛巾100条</strong>
+                            <a style="cursor:pointer" class="xq">详情 &gt;&gt;</a>
+                        </label>
+                        <label>
+                            <i class="duomai">满减</i><strong title="50/3">毛巾100条</strong>
+                        </label>
+                    </span>-->
+                </p>
+                <div class="duo" id="more" data-more="1">更多</div>
+                <!---class="dui"是正常情况下--->
+                <div class="dui" id="div_productinfo">
+                    <div class="tips" id="divProductProperty"></div>
+                    <div id="divPropertyList"></div>
+                    <p class="number"><b>购买数量</b><label><a class="jian">-</a><input type="text" id="buycount" value="1"><a class="jia">+</a></label><span></span></p>
+                </div>
+                <p class="list" id="pAuthorityLogo">
+                </p>
+                <div class="btn">
+                    <a operate="addtocart" id="btnAddShoppingCart" class="a2" style="cursor:pointer;display:none">加入购物车</a>
+                    <a operate="orderconfim" id="btnBuy" class="a1" style="cursor:pointer;display:none">立即购买</a>
+                    <a id="mainseckillbuy" class="a1" operate="orderconfim" style="cursor:pointer;display:none; width:260px">立即购买</a>
+					<!--下面的收藏、进入店铺改了设计位置，这个作废-->
+                    <!--span id="sc">收藏</span-->
+                    <!--span id="sc" class="in"><i></i>进入店铺</span-->
+					<b id="btnPhone" class="serviceTel" style="display:none">拨打<i>4008-678-888</i>，可语音下单~</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <ul class="hd" id="nav" module="202042" style="width:480px">
+            <li class="curr">商品详情</li>
+            <li>规格参数</li>
+            <li id="commonProblem">常见问题</li>
+            <li style="display:none">商品评价<span class="gj" id="reviewCount">（0）</span></li>
+        </ul>
+        <div class="bd" id="u_cont">
+            <div class="img" id="topNinePropertyInfo">
+                <p style="display:none"><a id="MorePropertyInfo">更多参数&gt;&gt;</a></p>
+                <span class="tu" id="productImgContent">
+                </span>
+                <span class="frome" id="span_sellerCompanyName"></span>
+            </div>
+            <div class="table" id="ulProductPropertyInfo">
+                <ul></ul>
+            </div>
+            <div class="qa" id="commonProblemContent">
+            </div>
+            <div class="gj_wrap" id="reviewContent" style="display:none;">
+                <ul class="gj_radio clearfix" id="gradeType">
+                    <li gradeType="all">
+                        <input id="ra_01" checked="checked" name="judged" type="radio"><label for="ra_01">全部</label>
+                    </li>
+                    <li gradeType="good">
+                        <input id="ra_02" name="judged" type="radio"><label for="ra_02">好评()</label>
+                    </li>
+                    <li gradeType="middle">
+                        <input id="ra_03" name="judged" type="radio"><label for="ra_03">中评()</label>
+                    </li>
+                    <li gradeType="bad">
+                        <input id="ra_04" name="judged" type="radio"><label for="ra_04">差评()</label>
+                    </li>
+                    <li gradeType="pic">
+                        <input id="ra_05" name="judged" type="radio"><label for="ra_05">有图()</label>
+                    </li>
+                </ul>
+                <ul class="gj_list" style="display:none" id="reviewList"></ul>
+                <div class="pag gj_page" id="reviewPage" style="margin-bottom:0px;text-align:unset;"><span id="PaginationTB"></span><span id="PageSet"></span></div>
+                <!--<ul class="gj_page" style="display:none" id="reviewPage">
+                    <li class="pre_page"><b>上一页</b></li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li class="gj_page_s">...</li>
+                    <li>8</li>
+                    <li class="next_page"><b>下一页</b></li>
+                </ul>-->
+                <div class="nogjWrap" id="reviewNo" style="display:none;">
+                    <div class="nogjImg"><img src="../img/nogj.jpg"></div>
+                    <div class="nogjCon" id="noMessage"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/template" id="tmpReview">
+    <li class="gj_list_li clearfix">
+        <div class="gj_list_head">
+            <div class="gj_list_img"><img src="{{userFace}}"></div>
+            <p class="gj_list_tel">{{userMobile}}</p>
+            <p class="gj_list_time">{{commentTime}}</p>
+        </div>
+        <div class="gj_list_main">
+            <p class="gj_list_con">
+                {{commentContent}}
+            </p>
+            <div class="com_imgs_up ">
+                <ul class="com_imgs clearfix">
+                    {{imgs}}
+                </ul>
+                <div class="img2big" style="display:none;">
+                    <img src="">
+                    <span class="img_delete2">删除</span>
+                </div>
+            </div>
+            <div class="gj_list_btm">
+                <p class="gj_list_btmTxt">{{replyContent}}</p>
+                <p class="gj_list_btmTime">{{replyTime}}</p>
+            </div>
+        </div>
+        <div class="gj_list_star">
+            <ul class="com_star clearfix">
+                {{grade}}
+            </ul>
+            {{attribute}}
+            <!--<p>样式:粉红色</p>
+            <p>规格:S</p>-->
+        </div>
+    </li>
+</script>
+<script type="text/javascript">
+    var s = [[], ["/JS/pages/ProductDetail.js", "/JS/jquery.pagination.js"]];
+    AppendStatic(s, function () {
+        UserLogin.Check(function () {
+            Product_Detail.api_input.picWidth = 0;
+            Product_Detail.api_input.productCode = GetQueryString("pid");// "108577";
+            Product_Detail.api_input.buyerType = GetQueryString("buyerType");
+            Product_Detail.api_input.version = 1.0;
+            Product_Detail.Init();
+            Product_Detail.GetDetail();
+            Product_Detail.RefreshSecKill();
+            reviewList.InitData();
+            reviewList.InitEvent();
+        });
+    });
+    var check_pid = GetQueryString("pid");
+    //alert(check_pid.substr(0, 1));
+    if (check_pid.substr(0, 1) == "9") {
+        g_index.GoTo(g_const_PageURL.GetKey(g_const_PageURL.ProductDetail), "&pid=" + check_pid.substr(1, check_pid.length - 1) + "&t=" + Math.random());
+    }
+    /*推拿详情页切换*/
+    var nav = document.getElementById('nav').getElementsByTagName('li');//获取导航
+    var box = document.getElementById('u_cont').getElementsByTagName('div');//获取模块
+    for (var i = 0; i <= nav.length - 1; i++) {
+        nav[i].onclick = function () { //鼠标悬浮事件
+            for (var i = 0; i <= nav.length - 1; i++) {
+                if (nav[i] == this) {
+                    nav[i].className = 'curr';
+                    box[i].style.display = 'block';
+                } else {
+                    nav[i].className = '';
+                    box[i].style.display = 'none';
+                }
+            }
+        }
+    }
+    $("#MorePropertyInfo").on("click", function () {
+        $("#nav li:eq(1)").addClass("curr").siblings().removeClass("curr");
+        $("#ulProductPropertyInfo").show().siblings().hide();
+    });
+</script>
+<script type="text/javascript">
+    //测试记录用户行为
+    (function () {
+        window.page = "101012";
+        var gas = document.createElement("script");
+        gas.type = "text/javascript";
+        gas.async = true;
+        gas.src = cdn_path + "/JS/gas.js";
+
+        var l = document.getElementsByTagName("script").length;
+        var g = document.getElementsByTagName("script")[l - 1];
+        g.parentNode.insertBefore(gas, g);
+    })();
+</script>
+<script>
+window.onload=function(){
+    var oS = document.getElementById('big');
+    var oB = document.getElementById('b');
+    var oM = document.getElementById('big_mask');
+    var oImg = oB.getElementsByTagName('img')[0];
+    oS.onmouseenter=function(){//把onmouseover改为onmouseenterl了。
+        oB.style.display='block';
+        oM.style.display='block';
+    };
+    oS.onmouseleave=function(){//吧omouseout改为onmouseleave了；
+        oB.style.display='none';
+        oM.style.display='none';
+    };
+    oS.onmousemove=function(ev){
+        var oEvent = ev||event;
+        var l = oEvent.clientX-getPos(oS).left-oM.offsetWidth/2;
+        var t = oEvent.clientY-getPos(oS).top-oM.offsetHeight/2;
+        if(l<0){
+            l=0;
+        }else if(l>oS.offsetWidth-oM.offsetWidth){
+            l=oS.offsetWidth-oM.offsetWidth;
+        }
+        if(t<0){
+            t=0;
+        }else if(t>oS.offsetHeight-oM.offsetHeight){
+            t=oS.offsetHeight-oM.offsetHeight;
+        }
+        oM.style.left=l+'px';
+        oM.style.top=t+'px';
+
+        oImg.style.left=-l/(oS.offsetWidth-oM.offsetWidth)*(oImg.offsetWidth-oB.offsetWidth)+'px';
+
+        oImg.style.top=-t/(oS.offsetHeight-oM.offsetHeight)*(oImg.offsetHeight-oB.offsetHeight)+'px';
+    };
+};
+function getPos(obj){
+    var l=0;
+    var t=0;
+    while(obj){
+        l+=obj.offsetLeft;
+        t+=obj.offsetTop;
+        obj = obj.offsetParent;
+    }
+    return {left:l,top:t};
+}
+</script>
+

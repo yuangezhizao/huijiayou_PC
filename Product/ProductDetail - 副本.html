@@ -1,0 +1,134 @@
+﻿<div class="details">
+    <h2><a id="btnAllProduct" style="cursor:pointer">全部商品</a><span id="span_Category"></span></h2>
+    <div class="show">
+        <div class="fl">
+            <div class="small">
+                <!--====class="up curr"为不可点击状态，如没有curr是正常可点击状态====-->
+                <a class="up curr"></a>
+                <div style="position:relative;height:444px;overflow:hidden;">
+                    <ul id="ulSlider" style="position:absolute;"></ul>
+                </div>
+                <!--====class="down curr"为不可点击状态，如没有curr是正常可点击状态====-->
+                <a class="down"></a>
+            </div>
+            <div class="big">
+                <img id="mainImg" alt="">
+                <i id="isSoldOut" style="display:none">售 罄</i>
+                <a href="#" style="display:none">图片展示</a>
+            </div>
+        </div>
+        <div class="fr">
+            <h3 id="productName"></h3>
+            <div class="bd" module="202042">
+                <p class="price"></p>
+                <p class="num"></p>
+                <p class="shou"></p>
+                <p class="gift" id="promotion" module="202047">
+                </p>
+                <div class="duo" id="more" data-more="1">更多</div>
+                <!---class="dui"是正常情况下-->
+                <div class="dui" id="div_productinfo">
+                    <div class="tips" id="divProductProperty"></div>
+                    <div id="divPropertyList"></div>
+                    <p class="number"><b>购买数量</b><label><a class="jian">-</a><input type="text" id="buycount" value="1"><a class="jia">+</a></label><span></span></p>
+                </div>
+                <p class="list" id="pAuthorityLogo">
+                </p>
+                <div class="btn">
+                    <a operate="orderconfim" id="btnBuy" class="a1" style="cursor:pointer;display:none">立即购买</a>
+                    <a operate="addtocart" id="btnAddShoppingCart" class="a2" style="cursor:pointer;display:none">加入购物车</a>
+                    <a id="mainseckillbuy" class="a1" operate="orderconfim" style="cursor:pointer;display:none; width:260px">立即购买</a>
+                    <span id="sc">收藏</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <ul class="hd" id="nav" module="202042">
+            <li class="curr">商品详情</li>
+            <li>规格参数</li>
+            <li id="commonProblem">常见问题</li>
+            <li>商品评价<span class="gj">（1280）</span></li>
+        </ul>
+        <div class="bd" id="u_cont">
+            <div class="img" id="topNinePropertyInfo">
+                <p style="display:none"><a id="MorePropertyInfo">更多参数&gt;&gt;</a></p>
+                <span class="tu" id="productImgContent">
+                </span>
+            </div>
+            <div class="table" id="ulProductPropertyInfo">
+                <ul></ul>
+            </div>
+            <div class="qa" id="commonProblemContent">
+            </div>
+            <div class="gj_wrap">
+                <ul class="gj_radio clearfix">
+                    <li>
+                        <input id="ra_01" name="judged" type="radio" /><label for="ra_01">全部</label>
+                    </li>
+                    <li>
+                        <input id="ra_02" name="judged" type="radio" /><label for="ra_02">好评(3434)</label>
+                    </li>
+                    <li>
+                        <input id="ra_03" name="judged" type="radio" /><label for="ra_03">中评(3434)</label>
+                    </li>
+                    <li>
+                        <input id="ra_04" name="judged" type="radio" /><label for="ra_04">差评(3434)</label>
+                    </li>
+                    <li>
+                        <input id="ra_05" name="judged" type="radio" /><label for="ra_05">有图(3434)</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var s = [[], ["/JS/pages/ProductDetail.js"]];
+    AppendStatic(s, function () {
+        UserLogin.Check(function () {
+            Product_Detail.api_input.picWidth = 0;
+            Product_Detail.api_input.productCode = GetQueryString("pid");// "108577";
+            Product_Detail.api_input.buyerType = GetQueryString("buyerType");
+            Product_Detail.api_input.version = 1.0;
+            Product_Detail.Init();
+            Product_Detail.GetDetail();
+            Product_Detail.RefreshSecKill();
+        });
+    });
+    /*推拿详情页切换*/
+    var nav = document.getElementById('nav').getElementsByTagName('li');//获取导航
+    var box = document.getElementById('u_cont').getElementsByTagName('div');//获取模块
+    for (var i = 0; i <= nav.length - 1; i++) {
+        nav[i].onclick = function () { //鼠标悬浮事件
+            for (var i = 0; i <= nav.length - 1; i++) {
+                if (nav[i] == this) {
+                    nav[i].className = 'curr';
+                    box[i].style.display = 'block';
+                } else {
+                    nav[i].className = '';
+                    box[i].style.display = 'none';
+                }
+            }
+        }
+    }
+    $("#MorePropertyInfo").on("click", function () {
+        $("#nav li:eq(1)").addClass("curr").siblings().removeClass("curr");
+        $("#ulProductPropertyInfo").show().siblings().hide();
+    });
+</script>
+<script type="text/javascript">
+    //测试记录用户行为
+    (function () {
+        window.page = "101012";
+        var gas = document.createElement("script");
+        gas.type = "text/javascript";
+        gas.async = true;
+        gas.src = cdn_path + "/JS/gas.js";
+
+        var l = document.getElementsByTagName("script").length;
+        var g = document.getElementsByTagName("script")[l - 1];
+        g.parentNode.insertBefore(gas, g);
+    })();
+</script>
+

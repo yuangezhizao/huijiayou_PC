@@ -1,0 +1,30 @@
+﻿    <!--===内容 star===-->
+    <div class="active">
+        <div class="full-h2"><i id="div_fullCutDescription"></i></div>
+        <div class="box full">
+            <div class="hed" id="nav">
+                <a class="curr" id="liot1" onclick="Product.Change_Sort(1)">默 认</a>
+                <a id="liot2" onclick="Product.Change_Sort(2)">销 量</a>
+            </div>
+            <div class="bd" id="u_cont">
+                <div style="display:block;">
+                    <ul id="divResultList"></ul>
+                    <div class="pag"><span id="PaginationTB"></span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--===内容 end===-->
+    <script type="text/javascript">
+        var staticsub = [[], ["/js/pages/FullCut.js", "/JS/jquery.pagination.js"]];
+        AppendStatic(staticsub, function () {
+            _activityCode = GetQueryString("activitycode");
+            _beginTime = GetQueryString("begintime");
+            _endTime = GetQueryString("endtime");
+            //控制IndexMain样式
+            $("#nav1").parent().hide();
+            $("#mainContent").removeClass("main");
+            Product.GetList();
+        });
+    </script>

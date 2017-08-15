@@ -1,0 +1,47 @@
+﻿<!--===内容 star===-->
+<div class="register" module="202020">
+    <div class="fl">
+        <ul id="register">
+            <li><b><i>*</i>手机号</b><input id="txtPhoneNo" maxlength="11" type="tel" value="" placeholder="请输入11位有效手机号码"><em id="emPhoneNo" style="display:none"></em></li>
+            <li id="li_Verify" style="display:none"><b><i>*</i>图片验证码</b>
+                        <input id="txtPicCode" type="text" class="text" value="" placeholder="请输入图片验证码" />
+                        <img src="" id="Verify_codeImag" alt="点击切换验证码" class="d_get_code"
+                             title="点击切换验证码" style="vertical-align: top; cursor: pointer;float:left;margin:9px 46px 0 0"
+                             onclick="ToggleCode(this.id, '/Ajax/LoginHandler.ashx'); return false;" /><em id="emPicCode" style="display:none"></em>
+                   
+            </li>
+            <li><b><i>*</i>设置密码</b><input id="txtPass" type="password" value="" placeholder="请输入6-16个字符，不能添加空格哦"><em id="emPass" style="display:none"></em></li>
+            <li><b><i>*</i>确认密码</b><input id="txtPassConfirm" type="password" value="" placeholder="请输入确认密码"><em id="emPassConfirm" style="display:none"></em></li>
+
+            <li><b><i>*</i>验证码</b><input id="txtValidCode" type="text" value="" class="text"><button id="btnCode">获取验证码</button><em id="emValidCode" style="display:none"></em></li>
+        </ul>
+        <p><label for="btnAgree"><input type="checkbox" id="btnAgree" checked="checked" value="">我已阅读并同意<a style="cursor:pointer;" href="http://www.jyh.com/IndexMain.html?u=Help&cid=44971604001000010005" class="on">《会员注册协议》</a>和<a style="cursor:pointer;" class="on" href="http://www.jyh.com/IndexMain.html?u=Help&cid=44971604001000010005">《隐私保护政策》</a></label></p>
+        <p class="on"><a style="cursor:pointer;" id="btnPhoneRegister">注 册</a></p>
+        <font><a style="cursor:pointer;" onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.Login, '');">我已注册，立即登录</a></font>
+    </div>
+    <div class="fr"><a href="/APP.html" target="_blank"><img src="http://win.image.ichsy.com/hjyweb/img/login001.jpg" alt=""></a></div>
+</div>
+<!--===内容 end===-->
+<script type="text/javascript">
+    var staticsub = [[], ["/js/JValidator.js", "/JS/ValidCodeBase.js", "/js/pages/Register.js"]];
+    AppendStatic(staticsub, function () {
+    });
+</script>
+<!--<script src="/js/JValidator.js"></script>
+<script src="/JS/ValidCodeBase.js"></script>
+<script src="/js/pages/Register.js"></script>-->
+
+<script type="text/javascript">
+    //测试记录用户行为
+    (function () {
+        window.page = "101003";
+        var gas = document.createElement("script");
+        gas.type = "text/javascript";
+        gas.async = true;
+        gas.src = cdn_path + "/JS/gas.js";
+
+        var l = document.getElementsByTagName("script").length;
+        var g = document.getElementsByTagName("script")[l - 1];
+        g.parentNode.insertBefore(gas, g);
+    })();
+</script>

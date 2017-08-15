@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <link rel="shortcut icon" href="http://win.image.ichsy.com/hjyweb/img/jyh.ico" type="image/vnd.microsoft.icon">
+    <title>惠家有-我的订单</title>
+    <script src="//hm.baidu.com/hm.js?06ad3f9921576f3678e83a92f8bfe070"></script><script src="//hm.baidu.com/hm.js?284c50ae2c7555254de787e76d62def6"></script><script src="/js/cdn.js"></script>
+    <script type="text/javascript">
+        var staticlist = [["/css/style.css", "/css/perfect-scrollbar.css"], ["/js/jquery.min.js", "/js/slide.js", "/JS/functions/g_Const.js", "/js/g_header.js", "/js/g_index.js", "/JS/functions/g_Type.js", "/js/Scroll/jquery.mousewheel.js", "/js/Scroll/perfect-scrollbar.js", "/js/Scroll/g_Scroll.js"]];
+        WriteStatic(staticlist);
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/perfect-scrollbar.css">
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script><script type="text/javascript" src="/js/slide.js"></script><script type="text/javascript" src="/JS/functions/g_Const.js"></script><script type="text/javascript" src="/js/g_header.js"></script><script type="text/javascript" src="/js/g_index.js"></script><script type="text/javascript" src="/JS/functions/g_Type.js"></script><script type="text/javascript" src="/js/Scroll/jquery.mousewheel.js"></script><script type="text/javascript" src="/js/Scroll/perfect-scrollbar.js"></script><script type="text/javascript" src="/js/Scroll/g_Scroll.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <!--===头部 star===-->
+        <div class="wrap_top">
+            <p module="202001">
+                <a class="fl" onclick="FavoritesOperator.Add();" num="202001-1">收藏</a>
+                <a href="Index.html" target="_self" num="202001-2">首页</a><a id="topLogin" num="202001-3" style="display: none;">请登录</a>
+                <a class="on" id="topLoginName" style="" num="202001-4">hi！18611111111</a>
+                <a onclick="UserInfo.Logout();" id="topLoginOut" style="" num="202001-5">退出</a>
+                <a id="topRegister" num="202001-6" style="display: none;">免费注册</a>
+                <span>|</span>
+                <font id="fontShoppingCart">购物车<a id="shoppingCartNum" num="202001-7">0</a>件</font>
+                <a id="myJYH" num="202001-8">我的家有</a>
+                <font id="fontDiscount">可用优惠劵<a id="discountNum" num="202001-9">0</a>张</font>
+                <a id="myFavourites" num="202001-10">我的收藏</a><span>|</span>
+                <label class="iphone"><a num="202001-11">手机版<strong class="tan"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm022.jpg" alt=""><em>惠家有APP</em></strong></a></label>
+                <label class="wx"><a num="202001-12">微信版<strong class="tan"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm011.jpg" alt=""><em>惠家有微信</em></strong></a></label>
+            </p>
+        </div>
+        <div class="head">
+            <div class="top" module="202002">
+                <h1><a href="Index.html" num="202002-1"><img src="http://win.image.ichsy.com/hjyweb/img/logo.jpg" alt="惠家有" title="惠家有"></a></h1>
+                <div class="search">
+                    <input type="text" id="txtSearch" value="">
+                    <a id="btnSearch" class="s1" num="202002-2">搜 索</a>
+                    <p id="hotWord" module="202005"><a class="curr" onclick="Hotword.SetSearch('金秋风暴')" num="202005-1">金秋风暴</a> <a class="" onclick="Hotword.SetSearch('惠人')" num="202005-2">惠人</a> <a class="" onclick="Hotword.SetSearch('香水')" num="202005-3">香水</a> <a class="" onclick="Hotword.SetSearch('大衣')" num="202005-4">大衣</a> <a class="" onclick="Hotword.SetSearch('手机')" num="202005-5">手机</a> <a class="" onclick="Hotword.SetSearch('飞利浦')" num="202005-6">飞利浦</a> </p>
+                    <!--====搜索关联====-->
+                    <div class="relevance" id="divAssociate" style="display:none;">
+                    </div>
+                </div>
+                <div class="fr" id="gou">
+                    <a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.Cart, '','','1');" class="gou" num="202002-3">我的购物车<i id="i_totalnum_top">0</i></a>
+                    <em id="biao" style="display: none;"></em>
+                    <div class="ware_list" id="ware_list" style="display: none;">
+                        <!--==有商品===-->
+                        <div class="you" id="cart_yes" style="display: none;">
+                            <h2>最新加入商品</h2>
+                            <ul class="bd description2" id="wrasList"></ul>
+                            <div class="ft">
+                                <span><a style="cursor:pointer" id="btnCart" num="202002-4">去购物车</a></span>
+                                <font>共<i id="i_totalnum">0</i>件商品</font>
+                                <font>合计<b id="i_totalprice">￥0.00</b>元</font>
+                            </div>
+                        </div>
+                        <!--===没有商品===-->
+                        <div class="wu" style="" id="cart_no">
+                            购物车中还没有商品，赶紧去选购吧
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav" id="div_Menu">
+                <b id="nav1" class="curr">
+                    全部商品分类
+                    <div class="pop description ps-container" id="navMain" style="display: none;">
+                        <div class="" id="pop" module="202011"><a onclick="Category.Load_ProductList('category','热门推荐');" id="li_level_0">热门推荐</a><a onclick="Category.Load_ProductList('category','厨房电器');" id="li_level_1">厨房电器</a><a onclick="Category.Load_ProductList('category','服装服饰');" id="li_level_2">服装服饰</a><a onclick="Category.Load_ProductList('category','厨房用品');" id="li_level_3">厨房用品</a><a onclick="Category.Load_ProductList('category','家纺用品');" id="li_level_4">家纺用品</a><a onclick="Category.Load_ProductList('category','美容护肤');" id="li_level_5">美容护肤</a><a onclick="Category.Load_ProductList('category','食品饮料');" id="li_level_6">食品饮料</a><a onclick="Category.Load_ProductList('category','箱包配饰');" id="li_level_7">箱包配饰</a><a onclick="Category.Load_ProductList('category','运动健康');" id="li_level_8">运动健康</a><a onclick="Category.Load_ProductList('category','生活家居');" id="li_level_9">生活家居</a><a onclick="Category.Load_ProductList('category','生活电器');" id="li_level_10">生活电器</a><a onclick="Category.Load_ProductList('category','test');" id="li_level_11">test</a><a onclick="Category.Load_ProductList('category','pc版');" id="li_level_12">pc版</a><a onclick="Category.Load_ProductList('category','移动端');" id="li_level_13">移动端</a><a onclick="Category.Load_ProductList('category','分类过多的显示名称过长显示样式');" id="li_level_14">分类过多的显示名称过长显示样式</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_15">1</a><a onclick="Category.Load_ProductList('category','haml');" id="li_level_16">haml</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_17">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_18">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_19">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_20">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_21">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_22">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_23">1</a><a onclick="Category.Load_ProductList('category','1');" id="li_level_24">1</a><a onclick="Category.Load_ProductList('category','3C数码');" id="li_level_25">3C数码</a></div>
+                    <div class="ps-scrollbar-x-rail" style="width: 231px; display: none; left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 560px; display: none; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
+                </b>
+                <ul module="2020012">
+                    <li><a href="Index.html" class="" style="cursor:pointer" target="_self">首页</a></li>
+                    <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.TVShow, '', '', '0')" id="TVShow" style="cursor:pointer">TV直播</a></li>
+                    <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.BrandPreferenceList, '', '', '0')" id="BrandPreferenceList" style="cursor:pointer">品牌惠</a></li>
+                    <!--<li><a>海外购</a></li>-->
+                    <li><a href="/APP.html" style="cursor:pointer" target="_self">惠家有APP</a></li>
+                    <li><a href="http://www.jiayouvip.cn" target="_self" style="cursor:pointer">家有尊享</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--===头部 end===-->
+        <!--===内容 star===-->
+        <div class="main" id="mainContent"><!--===内容 star===-->
+<div class="home">
+    <ul class="fl" module="202036">
+    <li><a href="/IndexMain.html?u=AccountIndex" class="" num="202036-1">我的主页</a></li>
+
+    <li><a href="/IndexMain.html?u=MyOrder_List" class="curr" num="202036-2">我的订单</a></li>
+
+    <li><a href="/IndexMain.html?u=MyOrder_List" class="curr" num="202036-2">充值订单</a></li>
+
+    <li><a href="/IndexMain.html?u=MyCollection" class="" num="202036-3">我的收藏</a></li>
+
+    <li><a href="/IndexMain.html?u=MyCoupon" class="" num="202036-4">我的优惠券</a></li>
+
+    <li><a href="/IndexMain.html?u=MyCZJ" class="" num="202036-5">我的储值金</a></li>
+
+    <li><a href="/IndexMain.html?u=MyZCK" class="" num="202036-6">我的暂存款</a></li>
+</ul>
+    <div class="fr">
+        <div class="my-order">
+            <ul class="hd" id="nav" module="202069"></ul>
+            <div class="bd" id="u_cont" module="202070">
+    <div class="order-list">
+        
+    <h2><span>下单时间： 2016-03-30 13:28:59<a href="/IndexMain.html?u=MyOrder_detail&amp;orderno=DD35691104" target="_blank">订单详情</a></span>订单号：DD35691104<i>交易关闭</i></h2>
+    <ul class="" module="202071">
+        
+    <li>
+        <a href="/IndexMain.html?u=ProductDetail&amp;pid=127888">
+            <img src="../img/1.png" width="90" height="90">
+            <i class="bill_class_02">流量</i>
+            <b>莫洛琪蜗牛再生因子修复专供组</b>
+            <p>颜色:共同<i>款式:共同</i></p>
+            <span>￥299.00<em>x2</em></span>
+            <i class="del_state" >退款中</i>
+        </a>
+    </li>
+
+    </ul>
+    <p class="ft">共<i>1</i>件<span>实付款：<em>￥7.00</em></span>
+        <a class="lj" operate="deliveredorder" orderno="DD4533545102" num="202070-3">确认收货</a>
+
+        <a class="" operate="expressorder" orderno="DD4533545102" num="202070-4">查看物流</a>
+
+        <a class="" operate="refundorder" orderno="DD4533545102" num="202070-5">电话退款</a>
+    </p>
+
+    
+        
+    <p class="pag"><span id="PaginationTB"><a style="cursor:pointer" class="on"><span id="spprev">← 上一页</span></a><a style="cursor:pointer" class="curr">1</a><a style="cursor:pointer" href="#">2</a><a style="cursor:pointer" href="#">3</a><a style="cursor:pointer" href="#">4</a><span>...</span><a style="cursor:pointer" href="#">6</a><a style="cursor:pointer" href="#">7</a><a style="cursor:pointer" href="#"><span id="spnext">下一页 →</span></a></span></p>
+
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+<script type="text/template" id="tpl_orderstatus_nav">
+    <li class="{{navclass}}" data-status="{{orderstatus}}">{{orderstatustext}}（{{ordercount}}）</li>
+</script>
+
+<script type="text/template" id="tpl_menu">
+    <li><a href="{{menulink}}" class="{{menuclass}}">{{menuname}}</a></li>
+</script>
+<!--<script src="/JS/functions/AccountMenu.js"></script>-->
+
+
+<script type="text/template" id="tpl_orderinfo">
+    <div class="order-list">
+        {{OrderInfo}}
+        {{PageInfo}}
+    </div>
+</script>
+<script type="text/template" id="tpl_page">
+    <p class="pag"><span id="PaginationTB"></span></p>
+</script>
+<script type="text/template" id="tpl_orderlist">
+    <h2><span>下单时间： {{ordertime}}<a href="{{orderdetaillink}}" target="_blank">订单详情</a></span>订单号：{{orderno}}<i>{{orderstatus}}</i></h2>
+    <ul class="{{ulclass}}" module="202071">
+        {{productlist}}
+    </ul>
+    <p class="ft">共<i>{{totalcount}}</i>件<span>实付款：<em>￥{{orderamount}}</em></span>{{orderbutton}}</p>
+
+</script>
+<script type="text/template" id="tpl_orderbutton">
+    <a  class="{{buttonclass}}" operate="{{buttonoperate}}" orderno="{{buttonorder}}">{{btnname}}</a>
+</script>
+<script type="text/template" id="tpl_orderproductlist">
+    <li>
+        <a href="{{productlink}}">
+            <img src="{{productpicture}}" width="90" height="90">
+            <b>{{productlabel}}{{productname}}</b>
+            <p>{{productsku}}</p>
+            <span>￥{{productprice}}<em>x{{productbuycount}}</em></span>
+        </a>
+    </li>
+</script>
+<script type="text/javascript">
+    var staticsub = [[], ["/JS/functions/AccountMenu.js", "/JS/pages/MyOrderList.js", "/JS/jquery.pagination.js"]];
+    AppendStatic(staticsub, function () {
+        page_myorderlist.Init();
+    });
+</script>
+<!--<script src="/JS/pages/MyOrderList.js"></script>
+<script src="/JS/jquery.pagination.js"></script>-->
+<script type="text/javascript">
+    //测试记录用户行为
+    (function () {
+        window.page = "101043";
+        var gas = document.createElement("script");
+        gas.type = "text/javascript";
+        gas.async = true;
+        gas.src = cdn_path + "/JS/gas.js";
+
+        var l = document.getElementsByTagName("script").length;
+        var g = document.getElementsByTagName("script")[l - 1];
+        g.parentNode.insertBefore(gas, g);
+    })();
+</script>
+<!--===内容 end===-->
+</div>
+        <!--===内容 end===-->
+    </div>
+    <ul class="warrant" id="ul_warrant"><li class="l1"><b>100%正品保证</b><i>质量有保障</i></li><li class="l2"><b>在线支付 全场包邮</b><i>送货上门</i></li><li class="l3"><b>支持银联刷卡付款</b><i>付款更安全</i></li><li class="l4"><b>货到付款 开箱验货</b><i>满意才收货</i></li><li class="l5"><b>7x24小时人工服务</b><i>微笑无时无刻 4008-678-210</i></li></ul>
+    <!--====弹出窗 star====-->
+    <div class="popup popall" style="z-index: 9999; display: none;" id="messageShow">
+        <i></i>
+        <div class="cont">
+            <div class="all">
+                <a class="close">X</a>
+                <div class="bd" id="message">
+                    <b id="sp_msg"><span></span>接口调用失败，请联系技术人员</b>
+                    <!--<a href="#">去购物车看看</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="customs-pop" style="display:none;" id="ConfirmMessage">
+        <i></i>
+        <div class="cont">
+            <h2><a id="btnClosed" style="cursor:pointer">关闭</a></h2>
+            <div class="bd" id="message">
+                <p id="confirm_sp_msg"></p>
+                <b><a id="btnCancel">取消</a><a id="btnConfirm">确认</a></b>
+            </div>
+        </div>
+    </div>
+    <div class="customs-pop" style="display:none;" id="loadTip">
+        <i></i>
+        <div class="waiting_bf">
+            <span class=""></span>
+            <span class="w_red"></span>
+        </div>
+    </div>
+    <!--====弹出窗 end====-->
+    <!--==添加地址弹出框==-->
+    <div id="div_address" class="add_pop" style="display:none;z-index:9000;" module="202041">
+        <i></i>
+        <div class="cont">
+            <h2><a style="cursor:pointer">关闭</a><span></span></h2>
+            <ul>
+                <li><b><em>*</em>收货人：</b><input type="text" value="" id="txtName"><span></span></li>
+                <li>
+                    <b><em>*</em>所在地区：</b>
+                    <select id="selProv"></select>
+                    <select id="selCity"></select>
+                    <select id="selDistrict"></select><span></span>
+                </li>
+                <li><b><em>*</em>详细地址：</b><input type="text" value="" class="text" id="txtAddressDetail"><span></span></li>
+                <li><b>邮编：</b><input type="text" value="" id="txtPostcode"><span></span></li>
+                <li><b><em>*</em>联系电话：</b><input type="text" value="" id="txtPhoneNo"><span></span></li>
+                <li>
+                    <b><em></em>身份证号：</b><input type="text" value="" id="txtIDno"><span></span>
+                    <p>提示：购买海外商品，海关需验证收货人身份证信息，请填写与收货人姓名一致的身份证号！否则将下单失败！</p>
+                </li>
+                <li>
+                    <b><em>*</em>设置默认地址：</b><label><input type="radio" value="1" name="isdefault" id="isdefault_1">是</label><label><input type="radio" name="isdefault" value="0" id="isdefault_0">否</label>
+                    <span id="disSave" style="display:none;"></span>
+                </li>
+                <li class="curr"><a id="btn_saveaddress">保存收货地址</a><input type="hidden" id="txtAid" value=""><input type="hidden" id="txtEmail" value=""></li>
+            </ul>
+        </div>
+    </div>
+    <div id="div_neiGouAddress" class="add_pop afa" style="display:none;z-index:9000;">
+        <i></i>
+        <div class="cont" style="height:230px;">
+            <h2><a style="cursor:pointer">关闭</a><span></span></h2>
+            <ul>
+                <li style="margin-left: 100px;"><b><em>*</em>收货人：</b><input type="text" style="width:290px;" value="" id="txtNeiGouName"><span></span></li>
+                <li style="margin-left: 100px;"><b><em>*</em>联系电话：</b><input type="text" value="" style="width:290px;" id="txtNeiGouPhoneNo"><span></span></li>
+                <!--<li>
+                    <b><em></em>身份证号：</b><input type="text" value="" id="txtNeiGouIDno"><span></span>
+                    <p>提示：购买海外商品，海关需验证收货人身份证信息，请填写与收货人姓名一致的身份证号！否则将下单失败！</p>
+                </li>-->
+                <li class="curr" style="margin-top:10px;margin-left:0px;"><a id="btn_NeiGouSaveaddress">保存收货地址</a><input type="hidden" id="txtAid" value=""></li>
+            </ul>
+        </div>
+    </div>
+    <!--===右侧浮动 star===-->
+    <ul class="drift">
+        <li class="l1"><a><strong class="tan2"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm022.jpg" alt=""><em>惠家有APP</em></strong></a></li>
+        <li class="l2"><a><strong class="tan2"><i></i><img src="http://win.image.ichsy.com/hjyweb/img/ewm011.jpg" alt=""><em>惠家有微信</em></strong></a></li>
+        <li class="l3" id="back-to-top" style="display: none;"><a>返回顶部</a></li>
+    </ul>
+    <!--===右侧浮动 end===-->
+    <!--===底部 star===-->
+    <div class="foot" module="202050" style="display:">
+        <div class="cont">
+            <div class="fl" id="div_title_index"><dl><dt><a>关于我们</a></dt><dd><a id="a_44971604001000010001" onclick="HelpMsg.HelpUrl('44971604001000010001')">公司介绍</a></dd><dd><a id="a_44971604001000010003" onclick="HelpMsg.HelpUrl('44971604001000010003')">招聘信息</a></dd><dd><a id="a_44971604001000010004" onclick="HelpMsg.HelpUrl('44971604001000010004')">联系我们</a></dd><dd><a id="a_44971604001000010005" onclick="HelpMsg.HelpUrl('44971604001000010005')">用户隐私条款</a></dd></dl><dl><dt><a>订购指南</a></dt><dd><a id="a_44971604001000020001" onclick="HelpMsg.HelpUrl('44971604001000020001')">交易条款</a></dd><dd><a id="a_44971604001000020003" onclick="HelpMsg.HelpUrl('44971604001000020003')">注册/购物流程</a></dd><dd><a id="a_44971604001000020002" onclick="HelpMsg.HelpUrl('44971604001000020002')">退/换货</a></dd><dd><a id="a_44971604001000020004" onclick="HelpMsg.HelpUrl('44971604001000020004')">积分说明</a></dd><dd><a id="a_44971604001000020005" onclick="HelpMsg.HelpUrl('44971604001000020005')">发票指南</a></dd><dd><a id="a_44971604001000020006" onclick="HelpMsg.HelpUrl('44971604001000020006')">会员制度说明</a></dd></dl><dl><dt><a>配送服务</a></dt><dd><a id="a_44971604001000030002" onclick="HelpMsg.HelpUrl('44971604001000030002')">配送区域</a></dd><dd><a id="a_44971604001000030003" onclick="HelpMsg.HelpUrl('44971604001000030003')">配送时间</a></dd><dd><a id="a_44971604001000030006" onclick="HelpMsg.HelpUrl('44971604001000030006')">验货与签收</a></dd></dl><dl><dt><a>支付方式</a></dt><dd><a id="a_44971604001000040001" onclick="HelpMsg.HelpUrl('44971604001000040001')">网上支付</a></dd><dd><a id="a_44971604001000040002" onclick="HelpMsg.HelpUrl('44971604001000040002')">货到付款</a></dd></dl><dl><dt><a>合作专区</a></dt><dd><a id="a_44971604001000050001" onclick="HelpMsg.HelpUrl('44971604001000050001')">成为供应商</a></dd><dd><a id="a_44971604001000050002" onclick="HelpMsg.HelpUrl('44971604001000050002')">供应商系统</a></dd><dd><a id="a_44971604001000050003" onclick="HelpMsg.HelpUrl('44971604001000050003')">合作伙伴</a></dd></dl></div>
+            <div class="fr">
+                <ul class="hd">
+                    <li><img src="http://win.image.ichsy.com/hjyweb/img/ewm011.jpg" alt="惠家有微信">惠家有微信</li>
+                    <li><img src="http://win.image.ichsy.com/hjyweb/img/ewm022.jpg" alt="惠家有APP">惠家有APP</li>
+                </ul>
+                <p>
+                    <b>4008-678-210</b>
+                    <i>客服 7x24小时 (全年无休)</i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer" module="202050">
+        <div class="cont">
+            <p style="display:none">
+                <a num="202050-1">关于家有</a>
+                <span>|</span>
+                <a num="202050-2">媒体关注</a>
+                <span>|</span>
+                <a num="202050-3">联系我们</a>
+                <span>|</span>
+                <a num="202050-4">诚聘英才</a>
+                <span>|</span>
+                <a num="202050-5">校园招聘</a>
+                <span>|</span>
+                <a num="202050-6">全部品牌</a>
+                <span>|</span>
+                <a num="202050-7">投诉建议</a>
+            </p>
+            <p id="friendLinkList" module="202051">友情链接： <a href="http://www.sj001.com/" target="_blank"> 南京手机报价</a> <a href="http://www.e.cn" target="_blank">竞拍</a> <a href="http://www.aolaigo.com/ " target="_blank">奥莱购</a> <a href="http://wiki.smzdm.com/" target="_blank">商品百科</a></p>
+            <p>Copyright © 2008-2013 jiayougo.com <a num="202050-8">北京家有德顺文化发展有限公司</a> 版权所有 黔ICP备13002365号  增值电信业务经营许可证：黔B2-20120036</p>
+            <ul style="display:none">
+                <!--<li><a ><img src="/img/img01.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img02.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img03.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img04.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img05.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img06.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img07.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img08.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img09.jpg" alt=""></a></li>-->
+            </ul>
+        </div>
+    </div>
+    <!--===底部 end===-->
+    <!--==页面动态效果==-->
+
+    <script type="text/javascript">
+        var staticlist = [[], ["/JS/pages/Category.js", "/JS/pages/Account.js", "/JS/Search.js", "/js/main.js", "/JS/FriendLinks.js", "/JS/pages/Help.js"]];
+        WriteStatic(staticlist);
+    </script><script type="text/javascript" src="/JS/pages/Category.js"></script><script type="text/javascript" src="/JS/pages/Account.js"></script><script type="text/javascript" src="/JS/Search.js"></script><script type="text/javascript" src="/js/main.js"></script><script type="text/javascript" src="/JS/FriendLinks.js"></script><script type="text/javascript" src="/JS/pages/Help.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            g_index.Init();
+            HelpMsg.GetListIndex();
+            var timer;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                $('.waiting_bf span').toggleClass("w_red");
+            }, 230)
+        });
+    </script>
+    <div style="display:none">
+        <a id="com_a"></a>
+        <script>
+            try {
+                var _hmt = _hmt || [];
+                (function () {
+                    var hm = document.createElement("script");
+                    hm.src = "//hm.baidu.com/hm.js?284c50ae2c7555254de787e76d62def6";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hm, s);
+                })();
+
+                var _hmt = _hmt || [];
+                (function () {
+                    var hm = document.createElement("script");
+                    hm.src = "//hm.baidu.com/hm.js?06ad3f9921576f3678e83a92f8bfe070";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hm, s);
+                })();
+           //     var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1259463728'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D1259463728%26l%3D3' type='text/javascript'%3E%3C/script%3E"));
+            } catch (e) {
+
+            }
+
+        </script>
+    </div>
+
+<script type="text/javascript" src="/JS/functions/AccountMenu.js"></script><script type="text/javascript" src="/JS/pages/MyOrderList.js"></script><script type="text/javascript" async="" src="/JS/gas.js"></script><script type="text/javascript" src="/JS/jquery.pagination.js"></script></body></html>

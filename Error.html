@@ -1,0 +1,39 @@
+﻿<div class="wrap">
+    <!--===内容 star===-->
+    <div class="fail">
+        <div class="top"><a href="/Index.html">返回首页</a></div>
+        <div class="live-list">
+            <div class="hd">
+                <!--<span><a  class="trade">换一批</a></span>-->
+                <h2>猜你喜欢</h2>
+            </div>
+            <div class="bd" module="202006">
+                <!--==结束的时候clas='end'做显示===-->
+                <div class="end" style="display:none;">本场抢购<br>已结束</div>
+                <ul id="maybeLove"></ul>
+                <!--==禁止加class="static"==-->
+                <a class="prev static" href="javascript:void(0)" onclick="ForMaybeLove.Previous(this);"></a>
+                <a class="next" href="javascript:void(0)" onclick="ForMaybeLove.Next(this);"></a>
+            </div>
+        </div>
+    </div>
+    <!--===内容 end===-->
+</div>
+<script type="text/template" id="tempMaybeLove">
+    <li>
+        <a onclick="{{Link}}" {{Style}}>
+            {{Mark}}
+            {{State}}
+            <img src="{{ImgUrl}}" alt="">
+            <b title="{{Title}}">{{ProductName}}</b>
+            <font>￥{{SalePrice}}<i>￥{{MarkPrice}}</i></font>
+        </a>
+    </li>
+</script>
+<script type="text/javascript">
+    var s = [[], ["/JS/pages/ForMaybeLove.js"]];
+    AppendStatic(s, function () {
+        ForMaybeLove.LoadData($("#tempMaybeLove"), $("#maybeLove"));
+        $("#div_Menu").hide();
+    });
+</script>

@@ -1,0 +1,19 @@
+﻿<input id="hidProductCode" type="hidden"/>
+<div class="" id="mainContent">
+    <div class="license">
+        <h1><span>供应商营业执照信息</span></h1>
+        <p class="toLookLicense">根据国家工商总局《网络交易管理办法》要求供应商营业执照信息公示如下</p>
+        <div class="int" id="divValid">
+            <input id="txtPicCode" type="text" placeholder="请输入图片验证码" /><img src="" id="Verify_codeImag" alt="点击切换验证码" class="d_get_code"
+     title="点击切换验证码" style="vertical-align: top; cursor: pointer;"
+     onclick="ToggleCode(this.id, '/Ajax/LoginHandler.ashx'); return false;" />
+        </div>
+        <a class="btn" id="btnValid">确定</a>
+        <img class="pic" id="img_bizLicensePic" style="display:none" />
+    </div>
+</div>
+<script type="text/javascript">
+    var s = [[], ["/JS/pages/SellerInfo.js"]];
+    AppendStatic(s, function () {
+    });
+</script>

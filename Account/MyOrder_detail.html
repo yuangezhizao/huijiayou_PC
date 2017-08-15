@@ -1,0 +1,96 @@
+﻿	<!--===内容 star===-->
+<div class="home">
+    <ul class="fl"></ul>
+    <div class="fr">
+        <div class="dismantle">
+            <div class="hd"></div>
+            <div class="bd">
+                <div class="cont" id="address">
+
+                </div>
+            </div>
+            <div class="hd" style="margin-bottom:20px;"></div>
+            <div class="ft" style="display:none;"></div>
+            <div class="order-list" id="orderListInfo" module="202073">
+
+            </div>
+            <div class="base" id="payInfo" module="202072">
+
+            </div>
+        </div>
+    </div>
+    <div class="tip" id="tipInfo"></div>
+</div>
+<script type="text/template" id="tpl_menu">
+    <li><a href="{{menulink}}" class="{{menuclass}}">{{menuname}}</a></li>
+</script>
+<script type="text/template" id="tpl_order_consignee">
+    <p>收&ensp;货&ensp;人： {{consigneeName}}</p>
+    <p>联系电话： {{consigneeTelephone}}</p>
+    <p>收货地址： {{consigneeAddress}}</p>
+    <p>发票信息： {{invoiceInformationTitle}}</p>
+    <p style="{{invoiceInformationValuestyle}}">发票内容： {{invoiceInformationValue}}</p>
+    {{idNumberValue}}
+</script>
+<script type="text/template" id="tpl_order_pay">
+    <p style="{{couponstyle}}">{{couponTitle}}：<b>{{couponplusOrMinus}}￥{{couponMoney}}</b></p>
+    <p style="{{tariffstyle}}">关税：<b>+￥{{tariffMoney}}</b></p>
+    <p style="{{telephoneSubtractionstyle}}">手机下单立减：<b>-￥{{telephoneSubtraction}}</b></p>
+    <p style="{{czjAmtstyle}}">储值金：<b>-￥{{czjAmtMoney}}</b></p>
+    <p style="{{zckAmtstyle}}">暂存款：<b>-￥{{zckAmtMoney}}</b></p>
+    <p style="{{fullSubstyle}}">满减：<b>-￥{{fullSubMoney}}</b></p>
+    <p>运费：<b>+￥{{freight}}</b></p>
+    <p>支付方式：<b>{{pay_type}}</b></p>
+    <p class="on">共<i>{{totalcount}}</i>件<span>实付款：<em>￥{{orderamount}}</em></span></p>
+    <p class="ft">{{buttonlist}}</p>
+</script>
+<script type="text/template" id="tpl_order_Info">
+    <h2>{{ordertitle}}</h2>
+    <ul class="{{ulclass}}">
+        {{orderproductlist}}
+    </ul>
+</script>
+<script type="text/template" id="tpl_orderproductlist">
+    <li>
+        <a href="{{productlink}}">
+            <img src="{{productpicture}}" width="90" height="90">
+            <b>{{productlabel}}{{productname}}</b>
+            <p>{{productsku}}</p>
+            <span>￥{{productprice}}<em>x{{productbuycount}}</em></span>
+        </a>
+    </li>
+</script>
+<script type="text/template" id="tpl_order_title_normal">
+    <span>下单时间： {{ordertime}}<a  href="{{orderexpresslink}}" style="{{orderexpresslinkstyle}}">物流详情</a></span>订单号：{{orderno}}
+    <i>{{orderstatus}}</i>
+</script>
+<script type="text/template" id="tpl_order_title_SeparateOrder">
+    <a href="{{orderexpresslink}}" style="{{orderexpresslinkstyle}}">物流详情</a>{{packgeName}}
+    <i>{{orderstatus}}</i>
+</script>
+<script type="text/template" id="tpl_orderbutton">
+    <a  class="{{buttonclass}}" operate="{{buttonoperate}}" orderno="{{buttonorder}}">{{btnname}}</a>
+</script>
+<script type="text/javascript">
+    var staticsub = [[], ["/JS/functions/AccountMenu.js", "/JS/pages/MyOrderDetail.js"]];
+    AppendStatic(staticsub, function () {
+        page_orderdetail.Init();
+    });
+</script>
+<!--<script src="/JS/functions/AccountMenu.js"></script>
+<script src="/JS/pages/MyOrderDetail.js"></script>-->
+<script type="text/javascript">
+    //测试记录用户行为
+    (function () {
+        window.page = "101044";
+        var gas = document.createElement("script");
+        gas.type = "text/javascript";
+        gas.async = true;
+        gas.src = cdn_path + "/JS/gas.js";
+
+        var l = document.getElementsByTagName("script").length;
+        var g = document.getElementsByTagName("script")[l - 1];
+        g.parentNode.insertBefore(gas, g);
+    })();
+</script>
+<!--===内容 end===-->

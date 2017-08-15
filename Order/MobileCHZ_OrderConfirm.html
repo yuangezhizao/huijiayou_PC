@@ -1,0 +1,116 @@
+﻿
+<input id="hid_wxpaytype" type="hidden" value="2" />
+<!--订单编号-->
+<input type="hidden" id="hid_orderno" value="">
+<!--支付方式-->
+<input type="hidden" id="hid_selpaytype" value="">
+<!--产品编号-->
+<input type="hidden" id="hid_productid" value="">
+<!--产品类型-->
+<input type="hidden" id="hid_cztype" value="">
+<!--产品面值-->
+<input type="hidden" id="hid_ordermoney" value="">
+<!--产品实际支付-->
+<input type="hidden" id="hid_paymoney" value="">
+<!--来源-->
+<input type="hidden" id="hidclienttype" value="">
+<!--充值手机号-->
+<input type="hidden" id="hidmobileNum" value="">
+<!--发起手机号-->
+<input type="hidden" id="hidLoginName" value="">
+<!--产品描述-->
+<input type="hidden" id="hid_memo" value="">
+<!--支付价格-->
+<input type="hidden" id="hid_paymoney" value="">
+<!--手机号所属-->
+<input type="hidden" id="hid_suoshu" value="">
+
+<!--===内容 star===-->
+<div class="order" module="202062">
+    <div class="address">
+        <div class="hd"><h2>确认充值手机号</h2></div>
+        <div class="bd">
+            <ul id="ulAddressList"></ul>
+        </div>
+    </div>
+    <div class="payment">
+        <div class="hd"><h2>支付方式</h2></div>
+        <div class="bd">
+            <dl>
+                <dt class="curr"><label for="rd_zxzf"><input id="rd_zxzf" type="radio" name="radio1" checked value="" onclick="setPaytype(1)">在线支付</label></dt>
+                <dd id="quan" module="202067" style="height: 125px;">
+                    <!--<p id="p1">
+                        <a class="curr" onclick="OrderPayment.Set('65','0','65')" num="202067-1"><i></i><img src="/img/bank/bank-65.jpg" alt="支付宝"></a>
+                        <a onclick="OrderPayment.Set('76','0','76')" num="202067-2"><i></i><img src="/img/bank/bank-76.jpg" alt="微信"></a>
+                    </p>
+                    <p id="p2">
+                        <a onclick="OrderPayment.Set('1','1','65')" num="202067-3"><i></i><img src="/img/bank/bank-1.jpg" alt="招商银行"></a>
+                        <a onclick="OrderPayment.Set('2','1','65')" num="202067-4"><i></i><img src="/img/bank/bank-2.jpg" alt="建设银行"></a>
+                        <a onclick="OrderPayment.Set('3','1','65')" num="202067-5"><i></i><img src="/img/bank/bank-3.jpg" alt="工商银行"></a>
+                        <a onclick="OrderPayment.Set('42','1','65')" num="202067-6"><i></i><img src="/img/bank/bank-42.jpg" alt="兴业银行"></a>
+                        <a onclick="OrderPayment.Set('47','1','65')" num="202067-7"><i></i><img src="/img/bank/bank-47.jpg" alt="交通银行"></a>
+                        <a onclick="OrderPayment.Set('49','1','65')" num="202067-8"><i></i><img src="/img/bank/bank-49.jpg" alt="北京农村商业银行"></a>
+                        <a onclick="OrderPayment.Set('69','1','65')" num="202067-9"><i></i><img src="/img/bank/bank-69.jpg" alt="中国银行"></a>
+                        <a onclick="OrderPayment.Set('86','1','65')" num="202067-10"><i></i><img src="/img/bank/bank-86.jpg" alt="农业银行"></a>
+                        <a onclick="OrderPayment.Set('70','1','65')" num="202067-11"><i></i><img src="/img/bank/bank-70.jpg" alt="中信银行"></a>
+                        <a onclick="OrderPayment.Set('94','1','65')" num="202067-12"><i></i><img src="/img/bank/bank-94.jpg" alt="平安银行"></a>
+                        <a onclick="OrderPayment.Set('901','1','65')" num="202067-13"><i></i><img src="/img/bank/bank-901.jpg" alt="民生银行"></a>
+                        </p>
+                        <span id="curr">收起</span>-->
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="confirm">
+        <div class="hd"><h2>订单确认</h2></div>
+        <div class="bd">
+            <ul id="ulGoodsList" module="202068"></ul>
+            <p id="spcost_money"></p>
+        </div>
+        <div class="pay">
+            <i id="i_sent_money"></i>
+            <p>实付款：<b id="b_pay_money"></b></p>
+            <span><a id="btnOrderCreate" class="tj" style="cursor:pointer">提交订单</a></span>
+        </div>
+    </div>
+</div>
+<!--===内容 end===-->
+<script type="text/javascript">
+    $(function () {
+        g_index.Warrant();
+    });
+    /*鼠标移过某个按钮 高亮显示*/
+    $("#prev1,#next1").hover(function () {
+        $(this).fadeTo("show", 1);
+    }, function () {
+        $(this).fadeTo("show", 0.5);
+    })
+    $("#focus1").slide({ titCell: "#num1 ul", mainCell: "#cont1", effect: "fold", autoPlay: true, delayTime: 700, autoPage: true });
+
+    $("#prev2,#next2").hover(function () {
+        $(this).fadeTo("show", 1);
+    }, function () {
+        $(this).fadeTo("show", 0.5);
+    })
+    $("#focus2").slide({ titCell: "#num2 ul", mainCell: "#cont2", effect: "fold", autoPlay: true, delayTime: 700, autoPage: true });
+</script>
+
+<!--底部-->
+
+<script type="text/javascript">
+    var s = [["/css/style.css"], ["/js/functions/g_Const.js", "/js/g_header.js", "/js/functions/g_Type.js", "/js/MobileChz/Mtype.js", "/JS/functions/Payment.js", "/js/pages/MobileCHZ_OrderConfirm.js"]];
+    AppendStatic(s, function () {
+        //page_MobileChz_Order.Init();
+    });
+</script>
+
+<!--<script>
+    if (GetClientType() == ClientType.WeiXin) {
+        $.each(g_const_OrderConfirmRefer, function (k, o) {
+            if (document.referrer.toLowerCase().indexOf(o) > -1) {
+                var wxUrl = g_const_PageURL.MyMobileCZOrder_pay + "?t=" + Math.random() + "&showwxpaytitle=1&order_code=" + GetQueryString("order_code");
+                WxInfo.GetPayID(wxUrl);
+            }
+        });
+    }
+</script>-->

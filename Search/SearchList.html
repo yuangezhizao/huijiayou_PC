@@ -1,0 +1,193 @@
+﻿<!--===内容 star===-->
+<div class="search-list" id="searchList" style="display:none;">
+    <div class="fl"  >
+        <h2 module="202021" id="searchMark"><a >全部商品</a></h2>
+        <div class="term" id="div_Condition">
+            <div class="hd">
+                <dl class="top" id="dlType">
+                    <dt>分类</dt>
+                    <dd module="202022">
+                        <a>全部</a>
+
+                    </dd>
+                </dl>
+                <dl id="dlBrand">
+                    <dt>品牌</dt>
+                    <dd module="202023">
+                        <a>全部</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="filter">
+            <ul module="202024">
+                <li class="curr" onclick="Product.Change_Sort(this);" data-sortype="0" data-sortflag="2">综合</li>
+                <li onclick="Product.Change_Sort(this);" data-sortype="1" data-sortflag="2">销量<i></i></li>
+                <li onclick="Product.Change_Sort(this);" data-sortype="4" data-sortflag="2">人气<i></i></li>
+                <li onclick="Product.Change_Sort(this);" data-sortype="3" data-sortflag="1">价格<b></b></li>
+                <li id="on" class="curr"><input type="text" id="minPrice" value="" placeholder="￥"><span>-</span><input type="text" id="maxPrice" value="" placeholder="￥"><a  id="btnPriceSearch">确认</a></li>
+            </ul>
+        </div>
+        <ul class="ac-list" id="productList" module="202025"></ul>
+        <div class="pag" module="202026"><span id="PaginationTB"></span><span id="PageSet"></span></div>
+    </div>
+    <div class="fr">
+        <div class="selling">
+            <div class="hd"><h2>热销推荐</h2></div>
+            <ul class="bd" id="hotProductsList" module="202027"></ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="live-list">
+        <div class="hd">
+            <!--<span><a  class="trade">换一批</a></span>-->
+            <h2>猜你喜欢</h2>
+        </div>
+        <div class="bd" module="202006">
+            <!--==结束的时候clas='end'做显示===-->
+            <div class="end" style="display:none;">本场抢购<br>已结束</div>
+            <ul id="maybeLove"></ul>
+            <!--==禁止加class="static"==-->
+            <a class="prev static" href="javascript:void(0)" onclick="ForMaybeLove.Previous(this);"></a>
+            <a class="next" href="javascript:void(0)" onclick="ForMaybeLove.Next(this);"></a>
+        </div>
+    </div>
+    <div class="again">
+        <b>重新搜索</b><input type="text" value="" id="txtAgainSearch" placeholder="默认显示当前的搜索关键词"><a id="btnRepeatSearch">搜索</a>
+    </div>
+</div>
+
+<div class="search-list" id="searchNothing" style="display:none;">
+    <div class="regret">
+        <i></i>抱歉，没有找到与“<b id="txtSK"></b>”相关的商品
+    </div>
+    <div class="live-list">
+        <div class="hd">
+            <h2>热销推荐</h2>
+        </div>
+        <div class="bd">
+            <ul id="recommendProduct" module="202027"></ul>
+        </div>
+    </div>
+    <div class="live-list">
+        <div class="hd">
+            <!--<span><a  class="trade">换一批</a></span>-->
+            <h2>猜你喜欢</h2>
+        </div>
+        <div class="bd" module="202006">
+            <!--==结束的时候clas='end'做显示===-->
+            <div class="end" style="display:none;">本场抢购<br>已结束</div>
+            <ul id="maybeLoveNothing"></ul>
+            <!--==禁止加class="static"==-->
+            <a class="prev static" href="javascript:void(0)" onclick="ForMaybeLove.Previous(this);"></a>
+            <a class="next" href="javascript:void(0)" onclick="ForMaybeLove.Next(this);"></a>
+        </div>
+    </div>
+</div>
+<!--===内容 end===-->
+<!--===底部 end===-->
+<script type="text/template" id="tempProduct">
+    <li>
+        <a  onclick="{{Link}}" {{Style}}>
+            {{Mark}}
+            {{State}}
+            <img src="{{ImgUrl}}" alt="">
+            <b title="{{Title}}">{{ProductName}}</b>
+            <p><i>￥{{MarkPrice}}</i>￥{{SalePrice}}{{Label}}</p>
+            <font>{{OtherLabel}}月销{{SaleCount}}件</font>
+        </a>
+    </li>
+</script>
+<script type="text/template" id="tempMaybeLove">
+    <li>
+        <a  onclick="{{Link}}" {{Style}}>
+            {{Mark}}
+            {{State}}
+            <img src="{{ImgUrl}}" alt="">
+            <b title="{{Title}}">{{ProductName}}</b>
+            <font>￥{{SalePrice}}<i>￥{{MarkPrice}}</i></font>
+        </a>
+    </li>
+</script>
+<script type="text/template" id="tempHotProduct">
+    <li>
+        <a  onclick="{{Link}}">
+            {{Mark}}
+            {{Top}}
+            <img src="{{ImgUrl}}" alt="">
+            <b title="{{Title}}">{{ProductName}}</b>
+            <em>￥{{SalePrice}}</em>
+        </a>
+    </li>
+</script>
+<script type="text/template" id="tempRecommendProduct">
+    <li>
+        <a  onclick="{{Link}}" {{Style}}>
+            {{State}}
+            <img src="{{ImgUrl}}" alt="">
+            <b title="{{Title}}">{{ProductName}}</b>
+            <font>￥{{SalePrice}}<i>￥{{MarkPrice}}</i></font>
+        </a>
+    </li>
+</script>
+<script type="text/javascript">
+    var s = [[], ["/JS/pages/SearchList.js", "/JS/jquery.pagination.js", "/JS/pages/ForMaybeLove.js"]];
+    AppendStatic(s, function () {
+        _showtypepara = GetQueryString("showtype");
+        _keyword = decodeURI(GetQueryString("keyword"));
+        $("#txtSearch").val(_keyword);
+        $("#txtAgainSearch").val(_keyword);
+        $("#txtSK").text(_keyword);
+        if (GetQueryString("sellername") != "") {
+            $("#txtSearch").attr("class", "color_ccc");
+            $("#txtSearch").attr("readonly", "true");
+            $("#txtSearch").val(decodeURI(GetQueryString("sellername")));
+            $("#btnSearch").hide();
+            $("#hotWord").hide();
+        }
+
+        $("#btnRepeatSearch").bind("click", function () {
+            var searchText = $("#txtAgainSearch").val();
+            if (searchText.Trim().length > 0) {
+                var p = "&showtype=&keyword=" + encodeURI(searchText) + "&t=" + Math.random();
+                g_index.GoTo(g_const_PageURL.GetKey(g_const_PageURL.SearchList), p);
+            }
+            else {
+                return false;
+            }
+        });
+
+        $("#txtAgainSearch").bind("keydown", function (e) {
+            var searchText = $(this).val();
+            var event = e || window.event;
+            if (event.keyCode == 13) {
+                if (searchText.Trim().length > 0) {
+                    var p = "&showtype=&keyword=" + encodeURI(searchText) + "&t=" + Math.random();
+                    g_index.GoTo(g_const_PageURL.GetKey(g_const_PageURL.SearchList), p);
+                }
+                else {
+                    return false;
+                }
+            }
+        });
+        Product.GetList();
+        Product.GetHotProducts();
+        if (GetQueryString("sellername") != "") {
+            $("#div_Condition").hide();
+        }
+    });
+</script>
+<script type="text/javascript">
+    //测试记录用户行为
+    (function () {
+        window.page = "101010";
+        var gas = document.createElement("script");
+        gas.type = "text/javascript";
+        gas.async = true;
+        gas.src = cdn_path + "/JS/gas.js";
+
+        var l = document.getElementsByTagName("script").length;
+        var g = document.getElementsByTagName("script")[l - 1];
+        g.parentNode.insertBefore(gas, g);
+    })();
+</script>

@@ -1,0 +1,103 @@
+﻿<!--===内容 star===-->
+<div class="trolley" id="divCart" style="display:none" module="202048">
+    <h2><i>包邮</i><span id="spanTitle"></span></h2>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="tbCartList" module="202049"></table>
+    <h3 id="h3_invalid">您的购物车内已有<span id="spinvalidnum"></span>款商品失效<a id="btnClear" style="cursor:pointer">清除失效商品</a></h3>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="tbCartInvalid" module="202049"></table>
+    <div  id="ft_01" class="ft">
+        <span>
+            已选择<i id="sp_total"></i>件商品<!--<font>总计：<b id="sp_price"></b><font id="font_money"></font></font>-->
+
+            <font id="total_money"></font> <font id="discount_money"></font><font>
+                应付款：<b id="pay_money"></b>
+            </font>
+            <a id="btnSubmit" style="cursor:pointer">去结算</a>
+        </span>
+        <label><input id="cbseletall_foot" type="checkbox" value="" onclick="CartInfo.SelectAll(this)">全选</label><a id="btnDel" style="cursor:pointer;">删除选中的商品</a>
+    </div>
+    <div id="ft_02" style="height:118px; background:#f90"></div>
+</div>
+<div class="kong" id="divCartNull" style="display:none" module="202048">
+    <!--=登录-->
+    <p style="display:none;" id="p_login">购物车内暂没有商品，您可以<a id="btnIndex_login" style="cursor:pointer" onclick="ToIndex()">去首页</a>挑选商品</p>
+    <!--=未登录-->
+    <p style="display:none;" id="p_unlogin">购物车内暂没有商品，<a id="btnIndex_Unlogin" style="cursor:pointer" onclick="ToLogin()">登录</a>后将显示您之前加入的商品，去<a id="btnIndex_Unlogin" style="cursor:pointer" onclick="ToIndex()">首页</a>挑选商品</p>
+</div>
+<!--===内容 end===-->
+<script type="text/javascript">
+    var s = [[], ["/JS/pages/Cart.js", "/js/JValidator.js"]];
+    AppendStatic(s, function () {
+        UserLogin.Check(CartInfo.LoadData);
+        //全选
+        $("#lblAllSelView").click(function () {
+            CartInfo.SelectAll(this);
+        });
+        $("#lblAllSelEdit").click(function () {
+            CartInfo.SelectAll(this);
+        });
+        //删除
+        $("#btnDel").click(function () {
+
+            if (selectNum > 0) {
+                ConfirmMessage("确定从购物车中删除所有选中商品？", "", CartInfo.DeleteCheck);
+            }
+            //CartInfo.DeleteSelect();
+        });
+        $("#btnSubmit").click(function () {
+            if (selectNum > 0) {
+                CartInfo.SubmitSelect();
+            }
+        });
+        $("#btnClear").click(function () {
+            ConfirmMessage("确定要清空失效商品吗？", "", CartInfo.DeleteInvalid);
+        });
+
+        
+    });
+
+    //测试记录用户行为
+    (function () {
+        window.page = "101045";
+        var gas = document.createElement("script");
+        gas.type = "text/javascript";
+        gas.async = true;
+        gas.src = cdn_path + "/JS/gas.js";
+
+        var l = document.getElementsByTagName("script").length;
+        var g = document.getElementsByTagName("script")[l - 1];
+        g.parentNode.insertBefore(gas, g);
+    })();
+
+
+
+    
+</script>
+
+<script type="text/javascript">
+        $(function () {
+            //........[去结算]offsetTop大于多少时悬浮在底部。
+            var haha=document.getElementById('ft_01');
+            var hehe=document.getElementById('ft_02');
+            //var oHeight=haha.offsetTop+haha.offsetHeight;
+            // var oT=haha.offsetTop;
+            // var oH=haha.offsetHeight;
+            var oT=$(haha).offset().top;
+            var oH=$(haha).outerHeight();
+            window.onscroll=function(){
+                    console.log($(haha).offset().top);
+                var scrollT = document.documentElement.scrollTop||document.body.scrollTop;
+                var clientH = document.documentElement.clientHeight;
+                var scrollB = scrollT+clientH;
+                if(oT+oH>scrollB){
+                    haha.style.position='fixed';
+                    haha.style.left='0';
+                    haha.style.bottom='0';
+                    hehe.style.display='block';
+                }else{
+                    hehe.style.display='none';
+                    haha.style.position='';
+                }
+            }
+
+        });
+</script>

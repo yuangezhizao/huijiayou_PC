@@ -1,0 +1,140 @@
+﻿<!--===内容 star===-->
+<div class="order" module="202062">
+    <div class="address">
+        <div class="hd"><span><a id="divAddressLogin" style="cursor:pointer">添加收货地址</a></span><h2>确认收货地址</h2></div>
+        <div class="bd">
+            <ul id="ulAddressList"></ul>
+            <div class="more" style="display:none">更多</div>
+        </div>
+    </div>
+    <div class="payment">
+        <div class="hd"><h2>支付方式</h2></div>
+        <div class="bd">
+            <dl>
+                <dt class="curr"><label for="rd_zxzf"><input id="rd_zxzf" type="radio" name="radio1" checked value="" onclick="setPaytype(1)">在线支付</label></dt>
+                <dd id="quan" module="202067">
+
+                </dd>
+                <dt style="display:none"><label for="rd_hdfk"><input id="rd_hdfk" type="radio" name="radio1" value="" onclick="setPaytype(0)">货到付款</label></dt>
+            </dl>
+        </div>
+    </div>
+    <div class="bill" module="202060" style="display:none">
+        <div class="hd"><h2>发票信息</h2></div>
+        <div class="bd">
+            <p class="curr"><b><label for="rd_bill1"><input type="radio" value="" id="rd_bill1" name="radio2" onclick="setBilltype(0)" checked>不开发票</label></b></p>
+            <p>
+                <b><label for="rd_bill2"><input type="radio" value="" id="rd_bill2" name="radio2" onclick="setBilltype(1)">发票抬头</label></b>
+                <font>
+                    <label style="padding-right:25px;"><input type="radio" value="" class="ra" name="radio3" checked onclick="setBilltitle(1)">个人</label>
+                    <label><input type="radio" value="" class="ra" name="radio3" onclick="setBilltitle(0)">公司<input id="txtBillTitle" style="display:none;" type="text" value="" class="inp1"></label>
+                    <span id="spanFplist"></span>
+                    <em id="spanFpMark"></em>
+                </font>
+            </p>
+        </div>
+    </div>
+    <div class="confirm">
+        <div class="hd"><h2>订单确认</h2></div>
+        <div class="bd">
+            <ul id="ulGoodsList" module="202068"></ul>
+
+            <ul>
+                <!--<li>
+                    <a style="cursor:pointer;" onclick="OrderDetail.LoadProductDetail('6016100109')" num="202068-1">
+                        <img src="http://www.minspc.com/webupload/welfare/T131126791802562646.jpg" alt="" width="83" height="83">
+                        <!--em>满减</em--><!--产品名称上面的标签去掉不要了
+                        <b>Pigeon贝亲婴儿洗衣液替换装720ml  共同 共同</b>
+                        <div class="tipWrap">
+                            <span class="zengpin">赠品</span><span class="sevenday">支持7天无理由退货</span>
+                        </div>
+                        <span>颜色：共同<i>款式：共同</i></span>
+                    </a>
+                    <font class="f1"><b>￥100.00</b></font>
+                    <font class="f2">x1</font>
+                    <font class="f3"><span>￥100.00</span></font>
+                </li>-->
+            </ul>
+            <p id="spcost_money"></p>
+        </div>
+        <div class="ft" module="202059">
+            <ul>
+                <li>
+                    <label><!--<input type="checkbox" id="rd_Coupon" value="">-->优惠券</label>
+                    <select id="selCoupon" onchange="CouponCodes.SetCouponCodes()"></select>
+                    <a id="btnOpenyhq" class="dhxj" style="cursor:pointer">兑换新劵</a>
+                    <a id="divyhq" class="ckqb" style="cursor:pointer;">查看全部优惠券</a>
+                    <p id="p_yhq" style="display:none"><input type="text" value="" placeholder="请输入优惠券兑换码" id="txtExchange"><a style="cursor:pointer;" id="btnExchange">兑 换</a><span id="spanExchange" style="display:none">请输入优惠码</span></p>
+                </li>
+                <li style="display:block;">
+                    <label><!--<input type="checkbox" id="rd_TemporaryStore" onclick="SetInputTemporaryStore()">-->暂存款</label>
+                    <input type="text" value="0" class="input" id="txt_TemporaryStore" onkeyup="value = value.replace(/[^\d]/g, '')" onblur="CheckInputTemporaryStore()">
+                    <span id="span_TemporaryStore" style="display:none"></span>
+                    <font>(可用<i id="i_TemporaryStoreCanUse"></i>,您有<i id="i_TemporaryStore"></i>,仅限直播品)</font>
+                </li>
+                <li style="display:block;">
+                    <label><!--<input type="checkbox" id="rd_StoreGold" onclick="SetInputStoreGold()">-->储值金</label>
+                    <input type="text" value="0" class="input" id="txt_StoreGold" onkeyup="value = value.replace(/[^\d]/g, '')" onblur="CheckInputStoreGold()">
+                    <span id="span_StoreGold" style="display:none"></span>
+                    <font>(可用<i id="i_StoreGoldCanUse"></i>,您有<i id="i_StoreGold"></i>,仅限直播品)</font>
+                </li>
+                <li style="display:none">
+                    <label><input type="checkbox" id="rd_Point" onclick="SetInputPoint()">积分</label>
+                    <input type="text" value="" class="input" id="txt_Point" disabled onkeyup="value = value.replace(/[^\d]/g, '')" onblur="CheckInputPoint()">
+                    <span id="span_Point" style="display:none"></span>
+                    <font>(您有<i id="i_Point"></i>可用)</font>
+                </li>
+                <li id="li_fullcut">
+                    <label><input type="radio" value="" checked>满减</label>
+                    满减总金额：<strong id="st_fullcut"></strong>
+                </li>
+            </ul>
+            <div class="total">优惠总金额：<i id="spsub_money"></i></div>
+        </div>
+        <div class="pay">
+            <i id="i_sent_money"></i>
+            <p>实付款：<b id="b_pay_money"></b></p>
+            <span><a id="btnBackCart" class="fh" style="cursor:pointer">返回购物车</a><a id="btnOrderCreate" class="tj" style="cursor:pointer">提交订单</a></span>
+        </div>
+    </div>
+</div>
+<!--===内容 end===-->
+<script type="text/javascript">
+    $(function () {
+        g_index.Warrant();
+        //Fun.Load(FlashActive.GetList);
+    });
+    /*鼠标移过某个按钮 高亮显示*/
+    $("#prev1,#next1").hover(function () {
+        $(this).fadeTo("show", 1);
+    }, function () {
+        $(this).fadeTo("show", 0.5);
+    })
+    $("#focus1").slide({ titCell: "#num1 ul", mainCell: "#cont1", effect: "fold", autoPlay: true, delayTime: 700, autoPage: true });
+
+    $("#prev2,#next2").hover(function () {
+        $(this).fadeTo("show", 1);
+    }, function () {
+        $(this).fadeTo("show", 0.5);
+    })
+    $("#focus2").slide({ titCell: "#num2 ul", mainCell: "#cont2", effect: "fold", autoPlay: true, delayTime: 700, autoPage: true });
+</script>
+<script type="text/javascript">
+    var s = [[], ["/JS/JValidator.js", "/JS/functions/Payment.js", "/JS/pages/OrderConfirm.js", "/js/main.js", "/JS/pages/AddressList.js"]];
+    AppendStatic(s, function () {
+        page_addresslist.LoadAreaData();
+        return false;
+    });
+    //测试记录用户行为
+    (function () {
+        window.page = "101047";
+        var gas = document.createElement("script");
+        gas.type = "text/javascript";
+        gas.async = true;
+        gas.src = cdn_path + "/JS/gas.js";
+
+        var l = document.getElementsByTagName("script").length;
+        var g = document.getElementsByTagName("script")[l - 1];
+        g.parentNode.insertBefore(gas, g);
+    })();
+</script>

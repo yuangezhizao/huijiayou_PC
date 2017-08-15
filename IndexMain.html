@@ -1,0 +1,318 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <link rel="shortcut icon" href="https://image-mall.huijiayou.cn/hjyweb/img/hjy.ico" type="image/vnd.microsoft.icon" />
+    <title>惠家有</title>
+    <script src="/js/cdn.js"></script>
+    <script type="text/javascript">
+        var staticlist = [["/css/style.css", "/css/perfect-scrollbar.css"], ["/js/jquery.min.js", "/js/slide.js", "/JS/functions/g_Const.js", "/js/g_header.js", "/js/g_index.js", "/JS/functions/g_Type.js", "/js/Scroll/jquery.mousewheel.js", "/js/Scroll/perfect-scrollbar.js", "/js/Scroll/g_Scroll.js"], ["/web_index.js", "/web_category.js", "/web_hotword.js", "/web_maybelove.js", "/web_tvdata.js", "/web_brand.js", "/web_hotbrand.js", "/web_hotsale.js"]];
+        WriteStatic(staticlist);
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <!--===头部 star===-->
+        <div class="wrap_top">
+            <p module="202001">
+                <a class="fl" onclick="FavoritesOperator.Add();">收藏</a>
+                <a href="Index.html" target="_self">首页</a><a id="topLogin">请登录</a>
+                <a class="on" id="topLoginName" style="display:none;"></a>
+                <a onclick="UserInfo.Logout();" id="topLoginOut" style="display:none;">退出</a>
+                <a id="topRegister">免费注册</a>
+                <span>|</span>
+                <font id="fontShoppingCart">购物车<a id="shoppingCartNum">0</a>件</font>
+                <a id="myJYH">我的家有</a>
+                <font id="fontDiscount">可用优惠劵<a id="discountNum">0</a>张</font>
+                <a id="myFavourites">我的收藏</a><span>|</span>
+                <label class="iphone"><a>手机版<strong class="tan"><i></i><img src="https://image-mall.huijiayou.cn/hjyweb/img/ewm022.jpg" alt=""><em>惠家有APP</em></strong></a></label>
+                <label class="wx">
+                    <a>
+                        微信版<strong class="tan">
+                            <i></i>
+                            <img src="https://image-mall.huijiayou.cn/hjyweb/img/ewm011.jpg" alt="">
+                            <em style="display:block;border-bottom:1px solid #eaeaea;">惠家有微信</em>
+                            <img src="https://image-mall.huijiayou.cn/hjyweb/img/qrcode_for_gh_709bb851bf02_430.jpg">
+                            <em>家有实验室</em>
+                        </strong>
+                    </a>
+                </label>
+            </p>
+        </div>
+        <div class="head">
+            <div class="top" module="202002">
+                <h1><a href="Index.html"><img src="https://image-mall.huijiayou.cn/hjyweb/img/logo.jpg" alt="惠家有" title="惠家有"></a></h1>
+                <div class="search">
+                    <input type="text" id="txtSearch"  value="">
+                    <a id="btnSearch" class="s1">搜 索</a>
+                    <p id="hotWord" module="202005">
+                    </p>
+                    <!--====搜索关联====-->
+                    <div class="relevance" id="divAssociate" style="display:none;">
+                    </div>
+                </div>
+                <div class="fr" id="gou">
+                    <a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.Cart, '','','1');" class="gou">我的购物车<i id="i_totalnum_top">0</i></a>
+                    <em id="biao"></em>
+                    <div class="ware_list" id="ware_list">
+                        <!--==有商品===-->
+                        <div class="you" id="cart_yes">
+                            <h2>最新加入商品</h2>
+                            <ul class="bd description2" id="wrasList"></ul>
+                            <div class="ft">
+                                <span><a style="cursor:pointer" id="btnCart">去购物车</a></span>
+                                <font>共<i id="i_totalnum">0</i>件商品</font>
+                                <font>合计<b id="i_totalprice">￥0.00</b>元</font>
+                            </div>
+                        </div>
+                        <!--===没有商品===-->
+                        <div class="wu" style="display:none;" id="cart_no">
+                            购物车中还没有商品，赶紧去选购吧
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav" id="div_Menu">
+                <b id="nav1" class="curr">
+                    全部商品分类
+                    <div class="pop description" id="navMain" style="display:none;">
+                        <div class="" id="pop" module="202011">
+                        </div>
+                    </div>
+                </b>
+                <ul module="2020012">
+                    <li><a href="Index.html" class="curr" style="cursor:pointer" target="_self">首页</a></li>
+                    <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.TVShow, '', '', '0')" id="TVShow" style="cursor:pointer">TV直播</a></li>
+                    <li><a onclick="g_const_PageURL.GoByMainIndex(g_const_PageURL.BrandPreferenceList, '', '', '0')" id="BrandPreferenceList" style="cursor:pointer">品牌惠</a></li>
+                    <!--<li><a>海外购</a></li>-->
+                    <li><a href="/APP.html" style="cursor:pointer" target="_self">惠家有APP</a></li>
+                    <li><a href="http://www.jiayouvip.cn" target="_self" style="cursor:pointer">家有尊享</a></li>
+                    <li><a href="http://www.jiayouyoucang.com" target="_blank" style="cursor:pointer">家有优藏</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--===头部 end===-->
+        <!--===内容 star===-->
+        <div class="main" id="mainContent">
+        </div>
+        <!--===内容 end===-->
+    </div>
+    <ul class="warrant" id="ul_warrant"></ul>
+    <!--====弹出窗 star====-->
+    <div class="popup" style="display:none; z-index:9999" id="messageShow">
+        <i></i>
+        <div class="cont">
+            <div class="all">
+                <a class="close">X</a>
+                <div class="bd" id="message">
+                    <b id="sp_msg"></b>
+                    <!--<a href="#">去购物车看看</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="customs-pop" style="display:none;" id="ConfirmMessage">
+        <i></i>
+        <div class="cont">
+            <h2><a id="btnClosed" style="cursor:pointer">关闭</a></h2>
+            <div class="bd" id="message">
+                <p id="confirm_sp_msg"></p>
+                <b><a id="btnCancel">取消</a><a id="btnConfirm">确认</a></b>
+            </div>
+        </div>
+    </div>
+    <div class="customs-pop" style="display:none;" id="loadTip">
+        <i></i>
+        <div class="waiting_bf">
+            <span class="w_red"></span>
+            <span class=""></span>
+        </div>
+    </div>
+    <!--====弹出窗 end====-->
+    <!--==添加地址弹出框==-->
+    <div id="div_address" class="add_pop" style="display:none;z-index:9000;" module="202041">
+        <i></i>
+        <div class="cont">
+            <h2><a style="cursor:pointer">关闭</a><span></span></h2>
+            <ul>
+                <li><b><em>*</em>收货人：</b><input type="text" value="" id="txtName"><span></span></li>
+                <li>
+                    <b><em>*</em>所在地区：</b>
+                    <select id="selProv"></select>
+                    <select id="selCity"></select>
+                    <select id="selDistrict"></select><span></span>
+                </li>
+                <li><b><em>*</em>详细地址：</b><input type="text" value="" class="text" id="txtAddressDetail"><span></span></li>
+                <li><b>邮编：</b><input type="text" value="" id="txtPostcode"><span></span></li>
+                <li><b><em>*</em>联系电话：</b><input type="text" value="" id="txtPhoneNo"><span></span></li>
+                <li>
+                    <b><em></em>身份证号：</b><input type="text" value="" id="txtIDno"><span></span>
+                    <p>提示：购买海外商品，海关需验证收货人身份证信息，请填写与收货人姓名一致的身份证号！否则将下单失败！</p>
+                </li>
+                <li>
+                    <b><em>*</em>设置默认地址：</b><label><input type="radio" value="1" name="isdefault" id="isdefault_1">是</label><label><input type="radio" name="isdefault" value="0" id="isdefault_0">否</label>
+                    <span id="disSave" style="display:none;"></span>
+                </li>
+                <li class="curr"><a id="btn_saveaddress">保存收货地址</a><input type="hidden" id="txtAid" value="" /><input type="hidden" id="txtEmail" value="" /></li>
+            </ul>
+        </div>
+    </div>
+    <div id="div_neiGouAddress" class="add_pop afa" style="display:none;z-index:9000;">
+        <i></i>
+        <div class="cont" style="height:230px;">
+            <h2><a style="cursor:pointer">关闭</a><span></span></h2>
+            <ul>
+                <li style="margin-left: 100px;"><b><em>*</em>收货人：</b><input type="text" style="width:290px;" value="" id="txtNeiGouName"><span></span></li>
+                <li style="margin-left: 100px;"><b><em>*</em>联系电话：</b><input type="text" value="" style="width:290px;" id="txtNeiGouPhoneNo"><span></span></li>
+                <!--<li>
+                    <b><em></em>身份证号：</b><input type="text" value="" id="txtNeiGouIDno"><span></span>
+                    <p>提示：购买海外商品，海关需验证收货人身份证信息，请填写与收货人姓名一致的身份证号！否则将下单失败！</p>
+                </li>-->
+                <li class="curr" style="margin-top:10px;margin-left:0px;"><a id="btn_NeiGouSaveaddress">保存收货地址</a><input type="hidden" id="txtAid" value="" /></li>
+            </ul>
+        </div>
+    </div>
+    <!--===右侧浮动 star===-->
+    <ul class="drift">
+        <li class="l1"><a><strong class="tan2"><i></i><img src="https://image-mall.huijiayou.cn/hjyweb/img/ewm022.jpg" alt=""><em>惠家有APP</em></strong></a></li>
+        <li class="l2"><a><strong class="tan2"><i></i><img src="https://image-mall.huijiayou.cn/hjyweb/img/ewm011.jpg" alt=""><em>惠家有微信</em></strong></a></li>
+        <li class="l3" id="back-to-top"><a>返回顶部</a></li>
+    </ul>
+    <!--===右侧浮动 end===-->
+    <!--===底部 star===-->
+    <div class="foot" module="202050" style="display:">
+        <div class="cont">
+            <div class="fl" id="div_title_index">
+            </div>
+            <div class="fr">
+                <ul class="hd">
+                    <li><img src="https://image-mall.huijiayou.cn/hjyweb/img/ewm011.jpg" alt="惠家有微信">惠家有微信</li>
+                    <li><img src="https://image-mall.huijiayou.cn/hjyweb/img/ewm022.jpg" alt="惠家有APP">惠家有APP</li>
+                </ul>
+                <p>
+                    <b>4008-678-210</b>
+                    <i>客服 7x24小时 (全年无休)</i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer" module="202050">
+        <div class="cont">
+            <p style="display:none">
+                <a>关于家有</a>
+                <span>|</span>
+                <a>媒体关注</a>
+                <span>|</span>
+                <a>联系我们</a>
+                <span>|</span>
+                <a>诚聘英才</a>
+                <span>|</span>
+                <a>校园招聘</a>
+                <span>|</span>
+                <a>全部品牌</a>
+                <span>|</span>
+                <a>投诉建议</a>
+            </p>
+            <p id="friendLinkList" module="202051">
+            </p>
+            <p>Copyright © 2008-2013 huijiayou.cn <a>家有购物集团有限公司北京分公司</a> 版权所有 黔ICP备13002365号  增值电信业务经营许可证：黔B2-20120036</p>
+            <ul style="display:none">
+                <!--<li><a ><img src="/img/img01.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img02.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img03.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img04.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img05.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img06.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img07.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img08.jpg" alt=""></a></li>
+                <li><a ><img src="/img/img09.jpg" alt=""></a></li>-->
+            </ul>
+        </div>
+    </div>
+    <!--===底部 end===-->
+    <!--==页面动态效果==-->
+
+    <script type="text/javascript">
+        var staticlist = [[], ["/JS/pages/Category.js", "/JS/pages/Account.js", "/JS/Search.js", "/js/main.js", "/JS/FriendLinks.js", "/JS/pages/Help.js"]];
+        WriteStatic(staticlist);
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            g_index.Init();
+            HelpMsg.GetListIndex();
+            var timer;
+            var flag = true;
+            clearInterval(timer);
+            //timer = setInterval(function () {
+            //    $('.waiting_bf span').toggleClass("w_red");
+            //}, 230)
+            timer = setInterval(function () {
+                if (flag) {
+                    $('.waiting_bf span:first').animate({ left: "19px" }, 600);
+                    $('.waiting_bf span:last').animate({ left: "48px" }, 600);
+                    flag = false;
+                } else {
+                    $('.waiting_bf span:first').animate({ left: "48px" }, 600);
+                    $('.waiting_bf span:last').animate({ left: "19px" }, 600);
+                    flag = true;
+                }
+            }, 0)
+        });
+    </script>
+    <div style="display:none">
+        <a id="com_a"></a>
+        <script>
+            try {
+                var _hmt = _hmt || [];
+                (function () {
+                    var hm = document.createElement("script");
+                    hm.src = "//hm.baidu.com/hm.js?284c50ae2c7555254de787e76d62def6";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hm, s);
+                })();
+
+                var _hmt = _hmt || [];
+                (function () {
+                    var hm = document.createElement("script");
+                    hm.src = "//hm.baidu.com/hm.js?06ad3f9921576f3678e83a92f8bfe070";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hm, s);
+                })();
+                var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1259463728'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D1259463728%26l%3D3' type='text/javascript'%3E%3C/script%3E"));
+            } catch (e) {
+
+            }
+
+        </script>
+    </div>
+    <div style="position:fixed;z-index:10085;bottom:45px;right:8px;width:100px;height:147px;background-image:url(https://image-mall.huijiayou.cn/hjyweb/img/zdytb_53kf_1376372420.jpg);background-repeat:no-repeat;cursor:pointer;">
+        <div style="position: absolute;overflow: hidden;width: 100px;height: 147px;left: 0px;top: 0px;z-index: 2;background-image: url(http://www4.53kf.com//img/upload/10032248/zdytb/zdytb_53kf_1376372420.jpg);background-repeat: no-repeat;font-size: 12px;text-align:left;font-family:宋体;border-style: none;cursor: pointer;" onclick="window.open('http://www4.53kf.com/webCompany.php?arg=10032248&amp;style=1&amp;kflist=on&amp;kf=liweishuai@jiayougo.com,fanyang@jiayougo.com,linwanbin@jiayougo.com,wangpeng@jiayougo.com,chenjimei@jiayougo.com,zhangwenkai@jiayougo.com,puqingsong@jiayougo.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;lytype=0&amp;referer={hz6d_referer}&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue','_blank','height=473,width=703,top=200,left=200,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no,location=no,titlebar=no');"></div>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+        $(function () {
+            var oWidth=$('#fastNews').width()-150;
+           var timer;
+           var oL=0;
+           clearInterval(timer);
+           setInterval(function(){
+                oL--;
+                if(-oL==oWidth){
+                    oL=0;
+                }
+                $('#fastNews').css('left',oL);
+           },70)
+        });
+</script>
+<script type="text/javascript">
+    if (!IsDebug) {
+        try {
+            !function () { var a = document.createElement("script"); a.type = "text/javascript", a.async = !0, a.src = "//configch2.veinteractive.com/tags/914CF86D/BA81/442C/AEB9/D4F4EFAC29F7/tag.js"; var b = document.getElementsByTagName("head")[0]; if (b) b.appendChild(a, b); else { var b = document.getElementsByTagName("script")[0]; b.parentNode.insertBefore(a, b) } }();
+        } catch (e) {
+
+        }
+    }
+</script>

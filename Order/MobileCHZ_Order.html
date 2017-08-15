@@ -1,0 +1,71 @@
+﻿
+    <div class="main" id="mainContent">
+        <!--===内容 star===-->
+        <div class="home">
+            <div class="CZWrap clearfix">
+                <ul class="CZ_type">
+                    <li class="curr clearfix" productType="00001">
+                        <span class="pic"></span>
+                        <span class="txt">手机话费</span>
+                        <p class="bor_btm"></p>
+                    </li>
+                    <li class="clearfix" productType="00002">
+                        <span class="pic"></span>
+                        <span class="txt">手机流量</span>
+                        <p class="bor_btm"></p>
+                    </li>
+                </ul>
+                <div class="CZInWrap">
+                    <ul class="">
+                        <li class="clearfix">
+                            <label>手机号码:</label>
+                            <input id="chz_mobilephone_number" class="CZIn_rt" type="text" placeholder="请输入手机号码" />
+                            <span class="dealer"></span>
+                            <b class="CZ_close" id="btn_chz_mobilephone_number_clear"></b>
+                        </li>
+                        <li class="clearfix">
+                            <label>充值面额:</label>
+
+                            <ul class="CZIn_rt facePrice clearfix"  id="balanceList">
+                                <!--<li class="">
+                                    <span>100元</span>
+                                    <b>江苏大丰</b>
+                                </li>-->
+                            </ul>
+                        </li>
+                        <li class="clearfix" id="radioWrap">
+                            <label>充值类型:</label>
+                            <ul class="CZIn_rt facePrice">
+                                <li class="curr"  style="line-height:50px;"  name="quanguo" >全国</li>
+                                <p class="tip">全国可用，即时生效，当月有效，支持2G/3G/4G</p>
+                            </ul>
+                        </li>
+                        <li class="clearfix">
+                            <label>　　价格:</label>
+                            <b class="CZIn_rt price"><!--199.89yuan--></b>
+                            <p class="CZIn_tip">充值类商品不提供发票</p>
+                        </li>
+                    </ul>
+                    <div class="CZ_btn" id="btn_chz">立即充值</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--===内容 end===-->
+<script type="text/template" id="tpl_product">
+    <li class="{{classname}}" data-productid="{{productid}}" data-faceprice="{{faceprice}}" data-saleprice="{{saleprice}}" data-orderno="{{ProductOrderNumber}}" data-facename="{{facename}}"><span>{{facename}}</span><b>售价：{{saleprice}}元</b></li>
+</script>
+<script type="text/template" id="tpl_history">
+    <li data-phone="{{phone}}"><a data-phone="{{phone}}">{{phone}}</a>  <b class="close" data-phone="{{phone}}"></b><span class="name">{{name}}</span></li>
+</script>
+
+
+    <script type="text/javascript">
+
+        var s = [["/css/style.css", "/css/perfect-scrollbar.css"], ["/js/functions/g_Const.js", "/js/g_header.js", "/js/functions/g_Type.js", "/js/MobileChz/Mtype.js", "/js/MobileChz/product.js", "/js/jvalidator.js", "/js/pages/MobileChz_Order.js"]];
+        AppendStatic(s, function () {
+            page_MobileChz_Order.Init();
+        });
+
+    </script>
+

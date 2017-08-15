@@ -1,0 +1,54 @@
+﻿<!--===内容 star===-->
+<div class="success">
+    <div class="icon" module="202063">
+        <i></i>
+        <p id="pageshow"></p>
+        <a  id="btn_orderinfo">查看订单详情</a>
+    </div>
+    <div class="live-list" module="202006">
+        <div class="hd">
+            <span style="display:none"><a class="trade">换一批</a></span>
+            <h2>猜你喜欢</h2>
+        </div>
+        <div class="bd">
+            <!--==结束的时候clas='end'做显示===-->
+            <div class="end" style="display:none;">本场抢购<br>已结束</div>
+            <ul></ul>
+            <!--==禁止加class="static"==-->
+            <a class="prev static" href="javascript:void(0)" onclick="ForMaybeLove.Previous(this);"></a>
+            <a class="next" href="javascript:void(0)" onclick="ForMaybeLove.Next(this);"></a>
+        </div>
+    </div>
+</div>
+<script type="text/template" id="tempMaybeLove">
+    <li>
+        <a  onclick="{{Link}}" {{Style}}>
+            {{State}}
+            <img src="{{ImgUrl}}" alt="">
+            <b>{{ProductName}}</b>
+            <font>￥{{SalePrice}}<i>￥{{MarkPrice}}</i></font>
+        </a>
+    </li>
+</script>
+<script type="text/javascript">
+    var s = [[], ["/JS/pages/ForMaybeLove.js", "/JS/pages/OrderSuccess.js"]];
+    AppendStatic(s, function () {
+        ForMaybeLove.LoadData($("#tempMaybeLove"), $("div.bd ul"));
+        page_order_success.Init();
+    });
+</script>
+<script type="text/javascript">
+    //测试记录用户行为
+    (function () {
+        window.page = "101089";
+        var gas = document.createElement("script");
+        gas.type = "text/javascript";
+        gas.async = true;
+        gas.src = cdn_path + "/JS/gas.js";
+
+        var l = document.getElementsByTagName("script").length;
+        var g = document.getElementsByTagName("script")[l - 1];
+        g.parentNode.insertBefore(gas, g);
+    })();
+</script>
+<!--===内容 end===-->

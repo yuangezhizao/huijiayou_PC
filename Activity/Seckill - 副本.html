@@ -1,0 +1,35 @@
+﻿<!--===内容 star===-->
+<div class="active">
+    <div class="banner" id="seckillBanner" style="display:none"></div>
+    <ul class="ladder" id="seckillList" module="202028"></ul>
+</div>
+<script type="text/template" id="stmpSeckill">
+    <li id="{{Tag}}">
+        <div class="fl">
+            <a>
+                <img src="{{ImgUrl}}" style="height:400px;" alt="">
+                <em class="{{SeckillState}}">正在进行</em>
+                <strong style="{{IsSaleOut}}">{{IsSaleOutInfo}}</strong>
+            </a>
+        </div>
+        <div class="fr">
+            <h2>{{Timer}}</h2>
+            <div class="bd">
+                <font>{{ProductName}}</font>
+                <p>秒杀价：<b>￥{{SalePrice}}</b><em>原价：￥{{MarkPrice}}</em></p>
+                <a onclick="{{Link}}" name="btn" class="{{ClassName}}">立即抢购</a>
+                <i>剩余{{Residue}}件</i>
+            </div>
+        </div>
+    </li>
+</script>
+<script type="text/javascript">
+    window.page = "102001";
+    var staticsub = [[], ["/JS/pages/Seckill.js"]];
+    AppendStatic(staticsub, function () {
+        page_seckill.event_product_sortType = g_const_event_product_sortType.Other;
+        page_seckill.Init();
+        page_seckill.Refresh();
+    });
+</script>
+<!--===内容 end===-->
